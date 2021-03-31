@@ -17,7 +17,7 @@ const addTask = () => {
 
 
 	return (<React.Fragment >
-						
+				<header className={classes.header}><span onClick={() => props.removeColumn(props.identy)}>X</span></header>		
 				<p className={classes.label}>{props.name}</p>
 
 				
