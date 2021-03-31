@@ -3,7 +3,7 @@ import classes from './Column.module.css';
 
 
 import Button from '../UI/Button/Button';
-
+import Input from '../UI/Input/Input';
 
 
 
@@ -23,17 +23,21 @@ const Column = (props) => {
 				{props.add 
 					?
 					<React.Fragment>
-						<input 
+						<Input 
 							type='text' 
 							value={inputState} 
 							onChange={(event) => setInputState(event.target.value)}
 							placeholder='nazwa kolumny'>
-						</input>
-						<Button click={addButton} disabled={inputState == '' ? true: false}>Dodaj Kolumne</Button>
+						</Input>
+						<Button click={addButton} disabled={inputState === '' ? true: false}>Dodaj Kolumne</Button>
 				 		
 					</React.Fragment> 
 					: 
-					<input type='text' value={props.name}/>}
+					<React.Fragment>
+						<Input type='text' value={props.name} />
+						<Button click disabled={inputState == '' ? true: false}>Dodaj Zadanie</Button>
+					</React.Fragment>
+				}
 			</div>
 		);
 };

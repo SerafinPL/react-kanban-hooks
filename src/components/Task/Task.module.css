@@ -1,4 +1,4 @@
-.column {
+.task {
 	width: 200px;
 	color: #000;
 	background-color: #FFF;
@@ -9,5 +9,7 @@
 	flex: 0 0 200px
 }
 
-
-
+.task input {
+	width: 100%;
+	text-align: center;
+}

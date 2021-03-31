@@ -11,7 +11,7 @@ const Kanban = () => {
 	const addColumn = (name) => {
 		const columns = [...lists];
 
-		columns.push({name: name, id: new Date().getTime(), order: columns.length})
+		columns.push({name: name, id: new Date().getTime(), order: columns.length, tasks:[] })
 		setLists([...columns])
 	};
 
