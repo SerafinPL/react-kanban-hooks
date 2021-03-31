@@ -1,15 +1,10 @@
 .task {
-	width: 200px;
+	width: 90%;
 	color: #000;
 	background-color: #FFF;
 	border: 1px solid #000;
-	margin: 10px 25px;
+	margin: 10px 5%;
 	text-align: center;
-	flex-basis: 200px;
-	flex: 0 0 200px
+	
 }
 
-.task input {
-	width: 100%;
-	text-align: center;
-}

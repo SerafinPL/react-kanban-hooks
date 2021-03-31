@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Task.module.css'
 
 
-const Task = () => {
+const Task = (props) => {
 	return(
 			<div className={classes.task}>
-				<p>Toolbar</p>
+				<p>{props.name}</p>
 			</div>
 		);
 };

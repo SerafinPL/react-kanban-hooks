@@ -11,17 +11,32 @@ const Kanban = () => {
 	const addColumn = (name) => {
 		const columns = [...lists];
 
-		columns.push({name: name, id: new Date().getTime(), order: columns.length, tasks:[] })
-		setLists([...columns])
+		columns.push({name: name, id: (name + new Date().getTime()), order: columns.length, tasks:[] });
+
+		setLists([...columns]);
+		
 	};
 
+	const addTask = (id, name) => {
+		const idOfColumn = lists.findIndex((value) => (id === value.id));
 
+
+		const columns = [...lists];
+		columns[idOfColumn].tasks.push({name: name, id:(name + new Date().getTime()), order: columns[idOfColumn].tasks.length});
+		setLists([...columns]);
+		console.log(lists);
+		//const column = lists.filter(list => (id === list.id));
+		//column.tasks.push({name: name, id:(name + new Date().getTime()), order: column.tasks.length});
+
+	}
+
+	
 
 	return(
 			<div className={classes.kanban}>
 				
 				{ lists.map( list => (
-					<Column key={list.id} name={list.name}/>
+					<Column key={list.id} identy={list.id} name={list.name} tasks={list.tasks} addTask={addTask}/>
 				) ) }
 
 				<Column key='000' add={addColumn}/>

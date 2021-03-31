@@ -4,18 +4,39 @@ import classes from './Column.module.css';
 
 import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
+import Task from '../Task/Task';
 
 
 
 const Column = (props) => {
 
-	const [inputState, setInputState] = useState('');
+	const [inputCol, setInputCol] = useState('');
+	const [inputTask, setInputTask] = useState('');
 
-	const addButton = () => {
+	const addCol = () => {
 
-		props.add(inputState);
-		setInputState('');
-	}
+		props.add(inputCol);
+		setInputCol('');
+	};
+
+	const addTask = () => {
+		props.addTask(props.identy, inputTask);
+		setInputTask('');
+	};
+
+	// const taskHandlerKeyPress = (event) => {
+ //  		if(event.key === 'Enter'){
+ //    		addCol();
+ //  		}
+	// }
+
+	// const colHandlerKeyPress = (event) => {
+ //  		if(event.key === 'Enter'){
+ //    		addTask();
+ //  		}
+	// }
+
+
 
 	return(
 			<div className={classes.column}>
@@ -25,17 +46,31 @@ const Column = (props) => {
 					<React.Fragment>
 						<Input 
 							type='text' 
-							value={inputState} 
-							onChange={(event) => setInputState(event.target.value)}
-							placeholder='nazwa kolumny'>
+							value={inputCol} 
+							onChange={(event) => setInputCol(event.target.value)}
+							placeholder='nazwa kolumny'
+							//onKeyDown={colHandlerKeyPress}
+							>
 						</Input>
-						<Button click={addButton} disabled={inputState === '' ? true: false}>Dodaj Kolumne</Button>
+						<Button click={addCol} disabled={inputCol === '' ? true: false}>Dodaj Kolumne</Button>
 				 		
 					</React.Fragment> 
 					: 
 					<React.Fragment>
-						<Input type='text' value={props.name} />
-						<Button click disabled={inputState == '' ? true: false}>Dodaj Zadanie</Button>
+						
+						<p>{props.name} </p>
+
+						
+						{props.tasks.map(task => <Task name={task.name} key={task.id} />)}
+						<Input 
+							type='text' 
+							value={inputTask} 
+							onChange={(event) => setInputTask(event.target.value)}
+							placeholder='nazwa zadania'
+							//onKeyDown={taskHandlerKeyPress}
+							>
+						</Input>
+						<Button click={addTask} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
 					</React.Fragment>
 				}
 			</div>
