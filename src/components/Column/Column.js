@@ -5,13 +5,14 @@ import classes from './Column.module.css';
 import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 import Task from '../Task/Task';
+import ExistingColumn from './ExistingColumn/ExistingColumn';
 
 
 
 const Column = (props) => {
 
 	const [inputCol, setInputCol] = useState('');
-	const [inputTask, setInputTask] = useState('');
+	
 
 	const addCol = () => {
 
@@ -19,10 +20,7 @@ const Column = (props) => {
 		setInputCol('');
 	};
 
-	const addTask = () => {
-		props.addTask(props.identy, inputTask);
-		setInputTask('');
-	};
+	
 
 	// const taskHandlerKeyPress = (event) => {
  //  		if(event.key === 'Enter'){
@@ -56,22 +54,13 @@ const Column = (props) => {
 				 		
 					</React.Fragment> 
 					: 
-					<React.Fragment>
-						
-						<p>{props.name} </p>
-
-						
-						{props.tasks.map(task => <Task name={task.name} key={task.id} />)}
-						<Input 
-							type='text' 
-							value={inputTask} 
-							onChange={(event) => setInputTask(event.target.value)}
-							placeholder='nazwa zadania'
-							//onKeyDown={taskHandlerKeyPress}
-							>
-						</Input>
-						<Button click={addTask} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
-					</React.Fragment>
+					<ExistingColumn
+							identy={props.identy}
+							name={props.name}
+							tasks={props.tasks}
+							addTask={props.addTask}
+					/>
+					
 				}
 			</div>
 		);

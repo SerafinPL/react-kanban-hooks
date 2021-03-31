@@ -4,7 +4,8 @@
 	background-color: #FFF;
 	border: 1px solid #000;
 	margin: 10px 5%;
-	text-align: center;
+	text-align: left;
+	box-shadow: 0 3px 3px #ddd;
 	
 }
 
