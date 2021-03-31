@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import classes from './Column.module.css';
-import AddColumn from './AddColumn';
+
+
+import Button from '../UI/Button/Button';
 
 
 
@@ -27,7 +29,8 @@ const Column = (props) => {
 							onChange={(event) => setInputState(event.target.value)}
 							placeholder='nazwa kolumny'>
 						</input>
-				 		<AddColumn click={addButton} disabled={inputState == '' ? true: false}/>
+						<Button click={addButton} disabled={inputState == '' ? true: false}>Dodaj Kolumne</Button>
+				 		
 					</React.Fragment> 
 					: 
 					<input type='text' value={props.name}/>}
