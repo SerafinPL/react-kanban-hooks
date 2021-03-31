@@ -1,28 +1,16 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './Column.module.css';
 
 
-import Button from '../UI/Button/Button';
-import Input from '../UI/Input/Input';
-import Task from '../Task/Task';
-import ExistingColumn from './ExistingColumn/ExistingColumn';
 
+import ExistingColumn from './ExistingColumn/ExistingColumn';
+import NewColumn from './NewColumn/NewColumn';
 
 
 const Column = (props) => {
 
-	const [inputCol, setInputCol] = useState('');
 	
-
-	const addCol = () => {
-
-		props.add(inputCol);
-		setInputCol('');
-	};
-
-	
-
-	// const taskHandlerKeyPress = (event) => {
+// const taskHandlerKeyPress = (event) => {
  //  		if(event.key === 'Enter'){
  //    		addCol();
  //  		}
@@ -41,18 +29,7 @@ const Column = (props) => {
 				
 				{props.add 
 					?
-					<React.Fragment>
-						<Input 
-							type='text' 
-							value={inputCol} 
-							onChange={(event) => setInputCol(event.target.value)}
-							placeholder='nazwa kolumny'
-							//onKeyDown={colHandlerKeyPress}
-							>
-						</Input>
-						<Button click={addCol} disabled={inputCol === '' ? true: false}>Dodaj Kolumne</Button>
-				 		
-					</React.Fragment> 
+					<NewColumn add={props.add}/>
 					: 
 					<ExistingColumn
 							identy={props.identy}
