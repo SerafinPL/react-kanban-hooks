@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './AddColumn.module.css'
 
 
-const AddColumn = () => {
+const AddColumn = (props) => {
 	return(
 			<div className={classes.addColumn}>
-				<button>+</button>
+				<button onClick={props.click} disabled={props.disabled}>Dodaj Kolumne</button>
 			</div>
 		);
 };
