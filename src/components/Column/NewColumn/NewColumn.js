@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 
+
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 
-const ExistingColumn = (props) => {
+const NewColumn = (props) => {
 
 
 	const [inputCol, setInputCol] = useState('');
@@ -24,11 +25,12 @@ const ExistingColumn = (props) => {
 				onChange={(event) => setInputCol(event.target.value)}
 				placeholder='nazwa kolumny'
 				//onKeyDown={colHandlerKeyPress}
+				
 				>
 			</Input>
-			<Button click={addCol} disabled={inputCol === '' ? true: false}>Dodaj Kolumne</Button>
+			<Button click={addCol} classes={'buttonCol'} disabled={inputCol === '' ? true: false}>Dodaj Kolumne</Button>
 	 		
 		</React.Fragment> 
 	);
 }
-export default ExistingColumn;
+export default NewColumn;

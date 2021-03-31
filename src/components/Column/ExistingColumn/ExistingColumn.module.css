@@ -9,6 +9,7 @@
 .flexGrow{
 	flex-grow: 1000;
 	display: flex;
+	margin-top: 10px;
 }	
 
 .adding {
@@ -17,5 +18,6 @@
 	height: 105px;
 	align-self: flex-end;
 	bottom: 0px;
+	border-radius: 5px;
 
 }

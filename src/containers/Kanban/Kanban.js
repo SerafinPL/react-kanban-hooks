@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import classes from './Kanban.module.css'
-import Column from '../../components/Column/Column'
+import classes from './Kanban.module.css';
+import Column from '../../components/Column/Column';
+
+import Modal from '../../components/UI/Modal/Modal'
 
 
 
@@ -34,7 +36,7 @@ const Kanban = () => {
 
 	return(
 			<div className={classes.kanban}>
-				
+				<Modal/>
 				{ lists.map( list => (
 					<Column key={list.id} identy={list.id} name={list.name} tasks={list.tasks} addTask={addTask}/>
 				) ) }

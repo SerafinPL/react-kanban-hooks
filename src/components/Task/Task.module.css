@@ -1,11 +1,13 @@
 .task {
-	width: 90%;
+	width: 96%;
 	color: #000;
 	background-color: #FFF;
 	border: 1px solid #000;
-	margin: 10px 5%;
+	margin: 2px 2%;
 	text-align: left;
-	box-shadow: 0 3px 3px #ddd;
+	box-shadow: 3px 3px 3px #aaa;
+	padding: 2%;
+	border-radius: 5px;
 	
 }
 

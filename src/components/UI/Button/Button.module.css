@@ -1,6 +1,40 @@
-.button {
+.buttonCol {
 	width: 90%;
 	font-size: 20px;
 	font-weight: bold;
 	margin: 10px 5%;
+	cursor: pointer;
+}
+
+.buttonGreen{
+	background-color: #00b33c;
+	border-style: inset;
+	border-color: #00ff55;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 2%;
+	cursor: pointer;
+}
+
+.buttonGreen:hover{
+	background-color: #00900a;
+	border-style: inset;
+	border-color: #00cc22;
+	
+}
+
+.buttonRed{
+	background-color: #ff4d4d;
+	border-style: inset;
+	border-color: #ff0000;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 2%;
+	cursor: pointer;
+}
+
+.buttonRed:hover{
+	background-color: #cc1a1a;
+	border-style: inset;
+	border-color: #cc0000;
 }

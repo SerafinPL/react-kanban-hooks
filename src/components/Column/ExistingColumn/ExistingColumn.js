@@ -32,7 +32,7 @@ const addTask = () => {
 							//onKeyDown={taskHandlerKeyPress}
 							>
 						</Input>
-						<Button click={addTask} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
+						<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
 					</div>
 				</div>
 			</React.Fragment>

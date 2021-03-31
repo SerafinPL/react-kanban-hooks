@@ -5,10 +5,13 @@
 	border: 1px solid #000;
 	margin: 10px 25px;
 	text-align: center;
+	box-shadow: 5px 5px 5px #aaa;
+	border-radius: 5px;
 	
 	flex: 0 0 200px;
 	display: flex;
 	flex-direction: column;
+
 
 
 }
