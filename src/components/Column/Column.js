@@ -36,6 +36,7 @@ const Column = (props) => {
 							name={props.name}
 							tasks={props.tasks}
 							addTask={props.addTask}
+							removeTask={props.removeTask}
 							removeColumn={props.removeColumn}
 					/>
 					

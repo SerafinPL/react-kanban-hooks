@@ -42,8 +42,12 @@ const Kanban = () => {
 
 	}
 
-	const removeTask = (id) => {
-		
+	const removeTask = (idList, idTask) => {
+		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
+		const columns = [...lists];
+		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));
+		columns[positionOfColumn].tasks.splice(positionOfTask, 1);
+		setLists([...columns]);
 	}
 
 	
@@ -52,7 +56,15 @@ const Kanban = () => {
 			<div className={classes.kanban}>
 				{/*<Modal/>*/}
 				{ lists.map( list => (
-					<Column key={list.id} identy={list.id} name={list.name} tasks={list.tasks} addTask={addTask} removeColumn={removeColumn}/>
+					<Column 
+						key={list.id} 
+						identy={list.id} 
+						name={list.name} 
+						tasks={list.tasks} 
+						addTask={addTask} 
+						removeTask={removeTask}
+						removeColumn={removeColumn}
+					/>
 				) ) }
 
 				<Column key='000' add={addColumn}/>

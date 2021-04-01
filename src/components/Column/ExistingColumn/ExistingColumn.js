@@ -30,7 +30,7 @@ const addTask = () => {
 				<p className={classes.label}>{props.name}</p>
 
 				
-				{props.tasks.map(task => <Task name={task.name} key={task.id} />)}
+				{props.tasks.map(task => <Task name={task.name} key={task.id} identyList={props.identy} identyTask={task.id} removeTask={props.removeTask}/>)}
 				<div className={classes.flexGrow}>
 					<div className={classes.adding}>
 						<Input 
