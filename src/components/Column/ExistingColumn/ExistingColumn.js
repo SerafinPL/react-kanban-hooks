@@ -32,7 +32,10 @@ const addTask = () => {
 							right='Anuluj'
 							clRight='buttonGreen'
 						/>}
-				<header className={classes.header}><span onClick={() => setModal(true)}>X</span></header>		
+				<header className={classes.header}>
+					<span className={classes.left}>&#9776;</span>
+					<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
+				</header>		
 				<p className={classes.label}>{props.name}</p>
 
 				

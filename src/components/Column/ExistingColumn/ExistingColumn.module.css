@@ -5,14 +5,23 @@
 }
 
 .header {
-	padding: 5px 10px;
-	
+	padding: 5px 5px;
+	font-size: 20px;
 	border-bottom: 1px solid #000;
-	text-align: right;
+	
 }
 
-.header span {
+.header span.right {
 	cursor: pointer;
+	
+	
+	float: right;
+}
+
+.header span.left {
+	cursor: grab;
+	float: left;
+	margin-left: 2px;
 }
 
 .flexGrow{
