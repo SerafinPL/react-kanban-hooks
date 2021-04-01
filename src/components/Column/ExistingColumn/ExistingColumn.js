@@ -49,7 +49,6 @@ const addTask = () => {
 							alert={`Usunąć Liste ${props.name}?`} 
 							ok={() => props.removeColumn(props.identy)}
 							cancel={() => setModal(false)}
-							indenty={props.identy}
 							left='Usuń'
 							clLeft='buttonRed'
 							right='Anuluj'

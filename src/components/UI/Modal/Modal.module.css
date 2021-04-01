@@ -1,0 +1,23 @@
+.backdrop{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.75);
+}
+
+.modal{
+	min-width: 200px;
+	border: 1px solid #aaa;
+	background-color: #FFF;
+	text-align: center;
+
+}
+
+.modal p {
+
+}
