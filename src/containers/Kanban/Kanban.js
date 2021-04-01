@@ -1,6 +1,50 @@
 import React, {useState} from 'react';
 import classes from './Kanban.module.css';
 import Column from '../../components/Column/Column';
+import {DragDropContext} from 'react-beautiful-dnd';
+
+
+const onDragEnd = (result, lists, setLists) => {
+	const {source, destination} = result;
+	console.log(result);
+
+	if (destination){
+		if( source.droppableId === destination.droppableId){ // ta sama kolumna
+			const indexOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
+			const columns = [...lists];
+			const tasks = [...columns[indexOfColumn].tasks];
+			
+			const [removed] = tasks.splice(source.index, 1);
+			tasks.splice(destination.index, 0, removed);
+			
+			columns[indexOfColumn].tasks = [...tasks];
+			setLists([...columns]);
+		} else { // inna kolumna
+			const indexSourceColumn = lists.findIndex((value) => (value.id === source.droppableId));
+			const indexDestColumn = lists.findIndex((value) => (value.id === destination.droppableId));
+			const columns = [...lists];
+
+			const sourceTasks = [...columns[indexSourceColumn].tasks];
+			const destTasks = [...columns[indexDestColumn].tasks];
+			
+			const [removed] = sourceTasks.splice(source.index, 1);
+			destTasks.splice(destination.index, 0, removed);
+
+			columns[indexSourceColumn].tasks = [...sourceTasks];
+			columns[indexDestColumn].tasks = [...destTasks];
+			setLists([...columns]);
+
+		}
+
+	} else { //if (destination)
+		return;
+	}
+
+	
+	
+}
+
+
 
 
 const Kanban = () => {
@@ -37,18 +81,22 @@ const Kanban = () => {
 
 	return(
 			<div className={classes.kanban}>
-				{ lists.map( list => (
-					<Column 
-						key={list.id} 
-						identy={list.id} 
-						name={list.name} 
-						tasks={list.tasks} 
-						addTask={addTask} 
-						removeTask={removeTask}
-						removeColumn={removeColumn}
-					/>
-				) ) }
+				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
+					{ lists.map( list => (
+						
+									<Column
+										 
+										key={list.id} 
+										identy={list.id} 
+										name={list.name} 
+										tasks={list.tasks} 
+										addTask={addTask} 
+										removeTask={removeTask}
+										removeColumn={removeColumn}
 
+									/>
+					  )  ) }
+				</DragDropContext>
 				<Column key='000' add={addColumn}/>
 			</div>
 		);

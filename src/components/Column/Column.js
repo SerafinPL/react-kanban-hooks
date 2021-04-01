@@ -30,8 +30,10 @@ const Column = (props) => {
 				{props.add 
 					?
 					<NewColumn add={props.add}/>
-					: 
+					:
+					 
 					<ExistingColumn
+							
 							identy={props.identy}
 							name={props.name}
 							tasks={props.tasks}
@@ -39,6 +41,8 @@ const Column = (props) => {
 							removeTask={props.removeTask}
 							removeColumn={props.removeColumn}
 					/>
+								
+					
 					
 				}
 			</div>
