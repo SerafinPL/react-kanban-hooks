@@ -1,5 +1,6 @@
-//import logo from './logo.svg';
+
 import './App.css';
+
 import Toolbar from './components/UI/Toolbar/Toolbar';
 import Kanban from './containers/Kanban/Kanban';
 

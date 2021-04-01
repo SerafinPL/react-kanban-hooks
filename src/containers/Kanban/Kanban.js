@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import classes from './Kanban.module.css';
 import Column from '../../components/Column/Column';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 
 const Kanban = () => {
@@ -37,18 +38,19 @@ const Kanban = () => {
 
 	return(
 			<div className={classes.kanban}>
-				{ lists.map( list => (
-					<Column 
-						key={list.id} 
-						identy={list.id} 
-						name={list.name} 
-						tasks={list.tasks} 
-						addTask={addTask} 
-						removeTask={removeTask}
-						removeColumn={removeColumn}
-					/>
-				) ) }
-
+				<DragDropContext onDragEnd={(result) => console.log(result)/*onDragEnd(result, columns, setColumns)*/}>
+					{ lists.map( list => (
+						<Column 
+							key={list.id} 
+							identy={list.id} 
+							name={list.name} 
+							tasks={list.tasks} 
+							addTask={addTask} 
+							removeTask={removeTask}
+							removeColumn={removeColumn}
+						/>
+					) ) }
+				</DragDropContext>
 				<Column key='000' add={addColumn}/>
 			</div>
 		);
