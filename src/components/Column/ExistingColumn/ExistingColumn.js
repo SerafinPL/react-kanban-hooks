@@ -22,16 +22,7 @@ const addTask = () => {
 
 
 	return (<React.Fragment >
-				{modal && <Modal 
-							alert={`Usunąć Liste ${props.name}?`} 
-							ok={() => props.removeColumn(props.identy)}
-							cancel={() => setModal(false)}
-							indenty={props.identy}
-							left='Usuń'
-							clLeft='buttonRed'
-							right='Anuluj'
-							clRight='buttonGreen'
-						/>}
+				
 				<header className={classes.header}>
 					<span className={classes.left}>&#9776;</span>
 					<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
@@ -53,6 +44,17 @@ const addTask = () => {
 						<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
 					</div>
 				</div>
+
+				{modal && <Modal 
+							alert={`Usunąć Liste ${props.name}?`} 
+							ok={() => props.removeColumn(props.identy)}
+							cancel={() => setModal(false)}
+							indenty={props.identy}
+							left='Usuń'
+							clLeft='buttonRed'
+							right='Anuluj'
+							clRight='buttonGreen'
+						/>}
 			</React.Fragment>
 	)
 }

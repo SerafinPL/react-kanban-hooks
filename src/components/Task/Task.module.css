@@ -11,3 +11,32 @@
 	
 }
 
+.task p {
+	margin: 2px;
+}
+
+.task p input{
+	margin: 3px;
+}
+
+.line{
+	text-decoration: line-through;	
+}
+
+
+
+
+.header {
+	height: 15px;
+}
+
+.header span.right {
+	cursor: pointer;
+	float: right;
+}
+
+.header span.left {
+	cursor: grab;
+	float: left;
+	margin-left: 2px;
+}

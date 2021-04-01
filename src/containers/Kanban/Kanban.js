@@ -42,6 +42,10 @@ const Kanban = () => {
 
 	}
 
+	const removeTask = (id) => {
+		
+	}
+
 	
 
 	return(
