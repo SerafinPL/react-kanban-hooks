@@ -5,10 +5,13 @@ import classes from './ExistingColumn.module.css';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import Task from '../../Task/Task';
+import Modal from '../../UI/Modal/Modal';
 
 const ExistingColumn = (props) => {
 
 const [inputTask, setInputTask] = useState('');
+const [modal, setModal] = useState(false);
+
 
 const addTask = () => {
 		props.addTask(props.identy, inputTask);
@@ -16,8 +19,20 @@ const addTask = () => {
 	};
 
 
+
+
 	return (<React.Fragment >
-				<header className={classes.header}><span onClick={() => props.removeColumn(props.identy)}>X</span></header>		
+				{modal && <Modal 
+							alert={`Usunąć Liste ${props.name}?`} 
+							ok={() => props.removeColumn(props.identy)}
+							cancel={() => setModal(false)}
+							indenty={props.identy}
+							left='Usuń'
+							clLeft='buttonRed'
+							right='Anuluj'
+							clRight='buttonGreen'
+						/>}
+				<header className={classes.header}><span onClick={() => setModal(true)}>X</span></header>		
 				<p className={classes.label}>{props.name}</p>
 
 				
