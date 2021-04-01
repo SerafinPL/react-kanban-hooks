@@ -10,21 +10,29 @@ const onDragEnd = (result, lists, setLists) => {
 
 	if (destination){
 		if( source.droppableId === destination.droppableId){ // ta sama kolumna
-			const positionOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
+			const indexOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
 			const columns = [...lists];
-			const tasks = [...columns[positionOfColumn].tasks]
-			console.log('tasks ', tasks);
+			const tasks = [...columns[indexOfColumn].tasks];
+			
 			const [removed] = tasks.splice(source.index, 1);
-			console.log('removed ',removed);
 			tasks.splice(destination.index, 0, removed);
-			console.log('tasks ', tasks);
-			columns[positionOfColumn].tasks = [...tasks]
-			console.log('columns ', columns);	
+			
+			columns[indexOfColumn].tasks = [...tasks];
 			setLists([...columns]);
 		} else { // inna kolumna
-			const indexDestColumn = lists.findIndex((value) => (value.id === destination.droppableId));
 			const indexSourceColumn = lists.findIndex((value) => (value.id === source.droppableId));
-			const columns = lists;
+			const indexDestColumn = lists.findIndex((value) => (value.id === destination.droppableId));
+			const columns = [...lists];
+
+			const sourceTasks = [...columns[indexSourceColumn].tasks];
+			const destTasks = [...columns[indexDestColumn].tasks];
+			
+			const [removed] = sourceTasks.splice(source.index, 1);
+			destTasks.splice(destination.index, 0, removed);
+
+			columns[indexSourceColumn].tasks = [...sourceTasks];
+			columns[indexDestColumn].tasks = [...destTasks];
+			setLists([...columns]);
 
 		}
 

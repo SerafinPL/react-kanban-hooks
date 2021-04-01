@@ -22,7 +22,7 @@ const Task = (props) => {
                         style={{
                         	...provided.draggableProps.style,
                         	userSelect: 'none',
-                        	backgroundColor: snapshot.isDragging ? 'navy' : 'lightblue',
+                        	backgroundColor: snapshot.isDragging ? 'white' : 'lightblue',
 
                         }}
 					>
