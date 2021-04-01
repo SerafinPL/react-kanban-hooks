@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import classes from './ExistingColumn.module.css';
 
-import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import { Droppable} from 'react-beautiful-dnd';
 
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
@@ -23,11 +23,12 @@ const addTask = () => {
 
 
 	return (
-		<Droppable droppableId={props.identy} key={props.identy}>
+		<Droppable droppableId={props.identy} key={props.identy} >
 			{
 				(provided, snapshot) => {
 					return(
-						<div 
+						<div
+							className={classes.drop} 
 							{...provided.droppableProps}
 							ref={provided.innerRef} 
 							style={{
@@ -42,13 +43,14 @@ const addTask = () => {
 								<p className={classes.label}>{props.name}</p>
 
 								
-								{props.tasks.map(task => (
+								{props.tasks.map((task, index) => (
 										<Task 
 											name={task.name} 
 											key={task.id} 
 											identyList={props.identy} 
 											identyTask={task.id} 
 											removeTask={props.removeTask}
+											index={index}
 										/>
 														))}
 								<div className={classes.flexGrow}>

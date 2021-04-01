@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import classes from './Kanban.module.css';
 import Column from '../../components/Column/Column';
-import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import {DragDropContext} from 'react-beautiful-dnd';
 
 
 const Kanban = () => {
