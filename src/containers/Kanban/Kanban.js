@@ -40,16 +40,19 @@ const Kanban = () => {
 			<div className={classes.kanban}>
 				<DragDropContext onDragEnd={(result) => console.log(result)/*onDragEnd(result, columns, setColumns)*/}>
 					{ lists.map( list => (
-						<Column 
-							key={list.id} 
-							identy={list.id} 
-							name={list.name} 
-							tasks={list.tasks} 
-							addTask={addTask} 
-							removeTask={removeTask}
-							removeColumn={removeColumn}
-						/>
-					) ) }
+						
+									<Column
+										 
+										key={list.id} 
+										identy={list.id} 
+										name={list.name} 
+										tasks={list.tasks} 
+										addTask={addTask} 
+										removeTask={removeTask}
+										removeColumn={removeColumn}
+
+									/>
+					  )  ) }
 				</DragDropContext>
 				<Column key='000' add={addColumn}/>
 			</div>

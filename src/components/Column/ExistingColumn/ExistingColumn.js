@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import classes from './ExistingColumn.module.css';
 
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
@@ -21,40 +22,63 @@ const addTask = () => {
 
 
 
-	return (<React.Fragment >
-				
-				<header className={classes.header}>
-					<span className={classes.left}>&#9776;</span>
-					<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
-				</header>		
-				<p className={classes.label}>{props.name}</p>
+	return (
+		<Droppable droppableId={props.identy} key={props.identy}>
+			{
+				(provided, snapshot) => {
+					return(
+						<div 
+							{...provided.droppableProps}
+							ref={provided.innerRef} 
+							style={{
+               					backgroundColor: snapshot.isDraggingOver ? 'lightgreen' : 'lightgrey',
+               				}}
+						>
+								
+								<header className={classes.header}>
+									<span className={classes.left}>&#9776;</span>
+									<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
+								</header>		
+								<p className={classes.label}>{props.name}</p>
 
-				
-				{props.tasks.map(task => <Task name={task.name} key={task.id} identyList={props.identy} identyTask={task.id} removeTask={props.removeTask}/>)}
-				<div className={classes.flexGrow}>
-					<div className={classes.adding}>
-						<Input 
-							type='text' 
-							value={inputTask} 
-							onChange={(event) => setInputTask(event.target.value)}
-							placeholder='nazwa zadania'
-							//onKeyDown={taskHandlerKeyPress}
-							>
-						</Input>
-						<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
-					</div>
-				</div>
+								
+								{props.tasks.map(task => (
+										<Task 
+											name={task.name} 
+											key={task.id} 
+											identyList={props.identy} 
+											identyTask={task.id} 
+											removeTask={props.removeTask}
+										/>
+														))}
+								<div className={classes.flexGrow}>
+									<div className={classes.adding}>
+										<Input 
+											type='text' 
+											value={inputTask} 
+											onChange={(event) => setInputTask(event.target.value)}
+											placeholder='nazwa zadania'
+											//onKeyDown={taskHandlerKeyPress}
+											>
+										</Input>
+										<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
+									</div>
+								</div>
 
-				{modal && <Modal 
-							alert={`Usunąć Liste ${props.name}?`} 
-							ok={() => props.removeColumn(props.identy)}
-							cancel={() => setModal(false)}
-							left='Usuń'
-							clLeft='buttonRed'
-							right='Anuluj'
-							clRight='buttonGreen'
-						/>}
-			</React.Fragment>
+								{modal && <Modal 
+											alert={`Usunąć Liste ${props.name}?`} 
+											ok={() => props.removeColumn(props.identy)}
+											cancel={() => setModal(false)}
+											left='Usuń'
+											clLeft='buttonRed'
+											right='Anuluj'
+											clRight='buttonGreen'
+										/>}
+							</div>
+					);
+				}
+			}
+		</Droppable>
 	)
 }
 export default ExistingColumn;
