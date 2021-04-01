@@ -4,6 +4,28 @@ import Column from '../../components/Column/Column';
 import {DragDropContext} from 'react-beautiful-dnd';
 
 
+const onDragEnd = (result, lists, setLists) => {
+	const {source, destination} = result;
+	console.log(result);
+
+	if (destination){
+		if( source.droppableId === destination.droppableId){ // ta sama kolumna
+
+		} else { // inna kolumna
+
+		}
+
+	} else { //if (destination)
+		return;
+	}
+
+	
+	
+}
+
+
+
+
 const Kanban = () => {
 
 	const [lists, setLists] = useState([]);
@@ -38,7 +60,7 @@ const Kanban = () => {
 
 	return(
 			<div className={classes.kanban}>
-				<DragDropContext onDragEnd={(result) => console.log(result)/*onDragEnd(result, columns, setColumns)*/}>
+				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					{ lists.map( list => (
 						
 									<Column
