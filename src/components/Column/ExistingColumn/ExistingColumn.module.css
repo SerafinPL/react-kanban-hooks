@@ -15,9 +15,10 @@
 }
 
 .header span.left {
-	cursor: grab;
+	line-height: 20px;
 	float: left;
 	margin-left: 2px;
+	cursor: default;
 }
 
 .flexGrow{
