@@ -31,7 +31,7 @@ const Toolbar = () => {
 				</React.Fragment>
 				
 				}
-				{console.log(context)}
+				
 
 			</div>
 			

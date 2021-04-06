@@ -101,6 +101,7 @@ const Kanban = () => {
 		
 			<div className={classes.mainBox} >
 			{context.isAuth &&
+			
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					<Droppable droppableId='main' type='column' direction='horizontal'>
 						{
@@ -110,7 +111,7 @@ const Kanban = () => {
 										{...provided.droppableProps}
 										ref={provided.innerRef} 
 										style={{
-			               					backgroundColor: snapshot.isDraggingOver ? 'lightgreen' : 'white',
+			               					backgroundColor: snapshot.isDraggingOver ? 'white' : 'white',
 			               					//paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
 
 			               				}}>
@@ -150,11 +151,11 @@ const Kanban = () => {
 										
 										
 										{provided.placeholder}
-										<div className={classes.column} >
-											<div className={classes.itemNew}>
-												<NewColumn add={addColumn}/>
-											</div>
-										</div>	
+									<div className={classes.columnAdd} >
+										<div className={classes.itemNew}>
+											<NewColumn add={addColumn}/>
+										</div>
+									</div>
 									</div>
 								);
 							}
@@ -162,7 +163,7 @@ const Kanban = () => {
 					</Droppable>
 					
 				</DragDropContext>
-				
+					
 					
 			}	
 			</div>
