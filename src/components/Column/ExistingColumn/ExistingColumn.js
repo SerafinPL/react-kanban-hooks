@@ -30,7 +30,7 @@ const addTask = () => {
 			</header>		
 			<p className={classes.label}>{props.name}</p>
 
-			<Droppable droppableId={props.identy} key={props.identy} >
+			<Droppable droppableId={props.identy} key={props.identy} type='task'>
 			{
 				(provided, snapshot) => {
 					return(

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import classes from './Kanban.module.css';
-import Column from '../../components/Column/Column';
-import {DragDropContext} from 'react-beautiful-dnd';
+import ExistingColumn from '../../components/Column/ExistingColumn/ExistingColumn';
+import NewColumn from '../../components/Column/NewColumn/NewColumn';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 
 const onDragEnd = (result, lists, setLists) => {
@@ -80,25 +81,67 @@ const Kanban = () => {
 	};
 
 	return(
-			<div className={classes.kanban}>
+			<>
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
-					{ lists.map( list => (
-						
-									<Column
-										 
-										key={list.id} 
-										identy={list.id} 
-										name={list.name} 
-										tasks={list.tasks} 
-										addTask={addTask} 
-										removeTask={removeTask}
-										removeColumn={removeColumn}
+					<Droppable droppableId='main' type='column' direction='horizontal'>
+						{
+							(provided, snapshot) => {
+								return(
+									<div className={classes.kanban} 
+										{...provided.droppableProps}
+										ref={provided.innerRef} 
+										style={{
+			               					backgroundColor: snapshot.isDraggingOver ? 'lightgreen' : 'white',
+			               					//paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
 
-									/>
-					  )  ) }
+			               				}}>
+
+										{ lists.map( (list, index) => (
+											<Draggable key={list.id} draggableId={list.id} index={index} >
+												{(provided, snapshot) => {
+                									return(
+														<div className={classes.column}
+															{...provided.draggableProps} 
+                        									ref={provided.innerRef}
+                        									{...provided.dragHandleProps}
+									                        style={{
+									                        	...provided.draggableProps.style,
+									                        	userSelect: 'none',
+									                        	backgroundColor: snapshot.isDragging ? 'white' : 'lightblue',
+
+									                        }}
+									                    >
+															<ExistingColumn
+																 
+																key={list.id} 
+																identy={list.id} 
+																name={list.name} 
+																tasks={list.tasks} 
+																addTask={addTask} 
+																removeTask={removeTask}
+																removeColumn={removeColumn}
+
+															/>
+															{provided.placeholder}
+														</div>
+													)
+												}}
+											</Draggable>
+										  )  ) }
+										
+										<div className={classes.column}>
+											<NewColumn key='000' add={addColumn}/>
+										</div>
+									</div>
+								);
+							}
+						}	
+					</Droppable>
 				</DragDropContext>
-				<Column key='000' add={addColumn}/>
-			</div>
+				
+					
+				
+			</>
 		);
 };
 
