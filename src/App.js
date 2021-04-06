@@ -1,27 +1,39 @@
-import React, {useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import './App.css';
 
 import Toolbar from './components/UI/Toolbar/Toolbar';
 import Kanban from './containers/Kanban/Kanban';
 
 
-import Context from './containers/context/context';
+import FullContext from './containers/context/context';
 
 
 
 function App() {
 
+	const [isAuth, setIsAuth] = useState(false);
 
-	const context = useContext(Context);
+	const loginOnHandler = () => {
+		setIsAuth(true);
+	};
+
+	const loginOffHandler = () => {
+		setIsAuth(false);
+	};
+
+	const context = useContext(FullContext);
 
   return (
-  
+  <FullContext.Provider value={{isAuth: isAuth, loginFunc: loginOnHandler, loginOff: loginOffHandler}}>
     <div className="App">
+
       <Toolbar/>
 
-      {context.isAuth ? <Kanban/> : null}
+       <Kanban/>
+      
       
     </div>
+  </FullContext.Provider>
   
   );
 }

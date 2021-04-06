@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import classes from './Kanban.module.css';
 import ExistingColumn from '../../components/Column/ExistingColumn/ExistingColumn';
 import NewColumn from '../../components/Column/NewColumn/NewColumn';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+
+import FullContext from '../context/context';
 
 
 const onDragEnd = (result, lists, setLists) => {
@@ -61,6 +63,8 @@ const onDragEnd = (result, lists, setLists) => {
 
 const Kanban = () => {
 
+	const context = useContext(FullContext);
+
 	const [lists, setLists] = useState([]);
 
 	const addColumn = (name) => {
@@ -94,7 +98,9 @@ const Kanban = () => {
 
 
 	return(
+		
 			<div className={classes.mainBox} >
+			{context.isAuth &&
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					<Droppable droppableId='main' type='column' direction='horizontal'>
 						{
@@ -157,8 +163,9 @@ const Kanban = () => {
 				</DragDropContext>
 				
 					
-				
+			}	
 			</div>
+		
 		);
 };
 
