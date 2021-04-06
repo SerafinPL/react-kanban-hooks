@@ -24,7 +24,7 @@ function App() {
 	const context = useContext(FullContext);
 
   return (
-  <FullContext.Provider value={{isAuth: isAuth, loginFunc: loginOnHandler, loginOff: loginOffHandler}}>
+  <FullContext.Provider value={{isAuth: isAuth, loginOn: loginOnHandler, loginOff: loginOffHandler}}>
     <div className="App">
 
       <Toolbar/>

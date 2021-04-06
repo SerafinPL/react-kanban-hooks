@@ -10,7 +10,11 @@ const Toolbar = () => {
 	const context = useContext(AuthContext);
 
 	const loginOn = () => {
-		context.loginFunc();
+		context.loginOn();
+	}
+
+	const loginOff = () => {
+		context.loginOff();
 	}
 
 	return(
@@ -18,12 +22,11 @@ const Toolbar = () => {
 			<div className={classes.toolbar}>
 				{context.isAuth ? 
 				<React.Fragment>
-					<NaviItem text='Wyloguj' onClick={() => context.loginOff()}></NaviItem>
-					<NaviItem text='Dodaj Kolumne'></NaviItem>
+					<NaviItem text='Wyloguj' click={loginOff}></NaviItem>
 				</React.Fragment>
 				:
 				<React.Fragment>	
-					<NaviItem text='Zaloguj' onClick={loginOn}></NaviItem>
+					<NaviItem text='Zaloguj' click={loginOn}></NaviItem>
 					<NaviItem text='Zarejestruj'></NaviItem>
 				</React.Fragment>
 				

@@ -43,14 +43,14 @@
 	color: #000;
 	background-color: #FFF;
 	height: 100px;
-	position: fixed;
+	/*position: fixed;
 	right: 5px;
-	top: 35px;
+	top: 35px;*/
 }
 
 
  .itemNew {
-	width: 250px;
+	width: 100%;
 	color: #000;
 	background-color: #FFF;
 	border: 1px solid #000;
@@ -58,8 +58,9 @@
 	text-align: center;
 	box-shadow: 5px 5px 5px #aaa;
 	border-radius: 5px;
-	flex: 0 0 250px;
+	flex: 0 0 300px;
 	display: flex;
 	flex-direction: column;
+	align-self: flex-end
 
 }

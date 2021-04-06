@@ -149,17 +149,18 @@ const Kanban = () => {
 										  )  ) }
 										
 										
-										{provided.placeholder}	
+										{provided.placeholder}
+										<div className={classes.column} >
+											<div className={classes.itemNew}>
+												<NewColumn add={addColumn}/>
+											</div>
+										</div>	
 									</div>
 								);
 							}
 						}	
 					</Droppable>
-					<div className={classes.columnAdd} >
-						<div className={classes.itemNew}>
-							<NewColumn add={addColumn}/>
-						</div>
-					</div>
+					
 				</DragDropContext>
 				
 					
