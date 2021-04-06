@@ -37,6 +37,14 @@ const onDragEnd = (result, lists, setLists) => {
 				setLists([...columns]);
 			}
 		} else { // type === 'column'
+			console.log(result);
+			const columns = [...lists];
+			const [movedColumn] = columns.splice(source.index, 1);
+			columns.splice(destination.index, 0, movedColumn);
+
+			setLists([...columns]);
+
+
 			return;
 		}
 
@@ -132,15 +140,18 @@ const Kanban = () => {
 											</Draggable>
 										  )  ) }
 										
-										<div className={classes.column}>
-											<NewColumn key='000' add={addColumn}/>
-										</div>
+										
 										{provided.placeholder}	
 									</div>
 								);
 							}
 						}	
 					</Droppable>
+					<div className={classes.kanban} >
+						<div className={classes.column}>
+							<NewColumn key='000' add={addColumn}/>
+						</div>
+					</div>
 				</DragDropContext>
 				
 					

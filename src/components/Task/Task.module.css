@@ -14,6 +14,7 @@
 
 .task p {
 	margin: 2px;
+	text-align: left;
 }
 
 .task p input{
