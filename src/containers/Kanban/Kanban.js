@@ -91,8 +91,10 @@ const Kanban = () => {
 		setLists([...columns]);
 	};
 
+
+
 	return(
-			<>
+			<div className={classes.mainBox} >
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					<Droppable droppableId='main' type='column' direction='horizontal'>
 						{
@@ -114,7 +116,7 @@ const Kanban = () => {
 														<div className={classes.column}
 															{...provided.draggableProps} 
                         									ref={provided.innerRef}
-                        									{...provided.dragHandleProps}
+                        									
 									                        style={{
 									                        	...provided.draggableProps.style,
 									                        	userSelect: 'none',
@@ -123,7 +125,7 @@ const Kanban = () => {
 									                        }}
 									                    >
 															<ExistingColumn
-																 
+																dragHandleProps =  {provided.dragHandleProps}
 																key={list.id} 
 																identy={list.id} 
 																name={list.name} 
@@ -147,8 +149,8 @@ const Kanban = () => {
 							}
 						}	
 					</Droppable>
-					<div className={classes.kanban} >
-						<div className={classes.column}>
+					<div className={classes.columnAdd} >
+						<div className={classes.itemNew}>
 							<NewColumn key='000' add={addColumn}/>
 						</div>
 					</div>
@@ -156,7 +158,7 @@ const Kanban = () => {
 				
 					
 				
-			</>
+			</div>
 		);
 };
 

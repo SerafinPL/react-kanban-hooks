@@ -1,3 +1,8 @@
+.mainBox{
+	margin: 10px;
+}
+
+
 .kanban {
 	width: 100%;
 	color: #000;
@@ -9,26 +14,49 @@
   	flex-direction: row;
   	flex-wrap: nowrap;
   	justify-content: left;
-  	overflow-x: auto;
-  	
-  	
+  	overflow: auto;
+}
 
- }
+
 
  .column {
 	width: 200px;
 	color: #000;
 	background-color: #FFF;
 	border: 1px solid #000;
-	margin: 10px 10px;
+	margin: 10px 0;
+	margin-right: 5px;
 	text-align: center;
 	box-shadow: 5px 5px 5px #aaa;
 	border-radius: 5px;
 	
-	flex: 1 1 200px;
+	flex: 1 0 250px;
 	display: flex;
 	flex-direction: column;
 
+}
 
+.columnAdd{
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	color: #000;
+	background-color: #FFF;
+	height: 100%;
+}
+
+
+ .itemNew {
+	width: 250px;
+	color: #000;
+	background-color: #FFF;
+	border: 1px solid #000;
+	margin: 10px 0;
+	text-align: center;
+	box-shadow: 5px 5px 5px #aaa;
+	border-radius: 5px;
+	flex: 0 0 250px;
+	display: flex;
+	flex-direction: column;
 
 }

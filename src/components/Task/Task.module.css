@@ -15,10 +15,17 @@
 .task p {
 	margin: 2px;
 	text-align: left;
+	font-size: 0.8em;
+	line-height: 17px;
+
 }
 
-.task p input{
-	margin: 3px;
+.task input{
+	margin-top: 3px;
+	margin-left: -10px;
+	margin-right: 3px;
+	float: left;
+
 }
 
 .line{
