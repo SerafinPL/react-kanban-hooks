@@ -44,7 +44,7 @@ const Task = (props) => {
 									right='Anuluj'
 									clRight='buttonGreen'
 								/>}
-					{provided.placeholder}	
+						
 					</div>
 				)
             }}

@@ -6,35 +6,38 @@ import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 
 const onDragEnd = (result, lists, setLists) => {
-	const {source, destination} = result;
+	const {source, destination, type} = result;
 	console.log(result);
 
 	if (destination){
-		if( source.droppableId === destination.droppableId){ // ta sama kolumna
-			const indexOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
-			const columns = [...lists];
-			const tasks = [...columns[indexOfColumn].tasks];
-			
-			const [removed] = tasks.splice(source.index, 1);
-			tasks.splice(destination.index, 0, removed);
-			
-			columns[indexOfColumn].tasks = [...tasks];
-			setLists([...columns]);
-		} else { // inna kolumna
-			const indexSourceColumn = lists.findIndex((value) => (value.id === source.droppableId));
-			const indexDestColumn = lists.findIndex((value) => (value.id === destination.droppableId));
-			const columns = [...lists];
+		if (type === 'task'){
+			if( source.droppableId === destination.droppableId){ // ta sama kolumna
+				const indexOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
+				const columns = [...lists];
+				const tasks = [...columns[indexOfColumn].tasks];
+				
+				const [removed] = tasks.splice(source.index, 1);
+				tasks.splice(destination.index, 0, removed);
+				
+				columns[indexOfColumn].tasks = [...tasks];
+				setLists([...columns]);
+			} else { // inna kolumna
+				const indexSourceColumn = lists.findIndex((value) => (value.id === source.droppableId));
+				const indexDestColumn = lists.findIndex((value) => (value.id === destination.droppableId));
+				const columns = [...lists];
 
-			const sourceTasks = [...columns[indexSourceColumn].tasks];
-			const destTasks = [...columns[indexDestColumn].tasks];
-			
-			const [removed] = sourceTasks.splice(source.index, 1);
-			destTasks.splice(destination.index, 0, removed);
+				const sourceTasks = [...columns[indexSourceColumn].tasks];
+				const destTasks = [...columns[indexDestColumn].tasks];
+				
+				const [removed] = sourceTasks.splice(source.index, 1);
+				destTasks.splice(destination.index, 0, removed);
 
-			columns[indexSourceColumn].tasks = [...sourceTasks];
-			columns[indexDestColumn].tasks = [...destTasks];
-			setLists([...columns]);
-
+				columns[indexSourceColumn].tasks = [...sourceTasks];
+				columns[indexDestColumn].tasks = [...destTasks];
+				setLists([...columns]);
+			}
+		} else { // type === 'column'
+			return;
 		}
 
 	} else { //if (destination)
@@ -107,7 +110,7 @@ const Kanban = () => {
 									                        style={{
 									                        	...provided.draggableProps.style,
 									                        	userSelect: 'none',
-									                        	backgroundColor: snapshot.isDragging ? 'white' : 'lightblue',
+									                        	backgroundColor: snapshot.isDragging ? 'lightblue' : 'white',
 
 									                        }}
 									                    >
@@ -122,7 +125,7 @@ const Kanban = () => {
 																removeColumn={removeColumn}
 
 															/>
-															{provided.placeholder}
+															
 														</div>
 													)
 												}}
@@ -132,6 +135,7 @@ const Kanban = () => {
 										<div className={classes.column}>
 											<NewColumn key='000' add={addColumn}/>
 										</div>
+										{provided.placeholder}	
 									</div>
 								);
 							}

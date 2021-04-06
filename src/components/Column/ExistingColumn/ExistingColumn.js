@@ -54,6 +54,7 @@ const addTask = () => {
 										index={index}
 									/>
 							))}
+							{provided.placeholder}
 						</div>
 					);
 				}
