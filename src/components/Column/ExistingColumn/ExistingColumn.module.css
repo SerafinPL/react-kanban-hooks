@@ -33,7 +33,7 @@
 	
 	align-self: flex-end;
 	
-	border-radius: 5px;
+	
 	width: 100%;
 
 }
@@ -41,6 +41,5 @@
 .drop{
 	display: flex;
 	flex-direction: column;
-
 	height: 100%;
 }

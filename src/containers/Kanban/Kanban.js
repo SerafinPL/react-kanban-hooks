@@ -151,7 +151,7 @@ const Kanban = () => {
 					</Droppable>
 					<div className={classes.columnAdd} >
 						<div className={classes.itemNew}>
-							<NewColumn key='000' add={addColumn}/>
+							<NewColumn add={addColumn}/>
 						</div>
 					</div>
 				</DragDropContext>

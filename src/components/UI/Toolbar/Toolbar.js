@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import classes from './Toolbar.module.css'
 
 import NaviItem from './Navi/NaviItem';
 
-
+import Context from '../../../containers/context/context';
 
 const Toolbar = () => {
 
-	const [authHook, setAuthHook] = useState(false);
-
-	
+	const context = useContext(Context);
 
 	return(
+	
 			<div className={classes.toolbar}>
-				{authHook ? 
+				{context.isAuth ? 
 				<>
 					<NaviItem text='Wyloguj'></NaviItem>
 					<NaviItem text='Dodaj Kolumne'></NaviItem>
@@ -25,7 +24,10 @@ const Toolbar = () => {
 				</>
 				
 				}
+				
 			</div>
+			
+
 		);
 };
 
