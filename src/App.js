@@ -21,7 +21,7 @@ function App() {
 		setIsAuth(false);
 	};
 
-	const context = useContext(FullContext);
+	//const context = useContext(FullContext);
 
   return (
   <FullContext.Provider value={{isAuth: isAuth, loginOn: loginOnHandler, loginOff: loginOffHandler}}>

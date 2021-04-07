@@ -53,13 +53,7 @@ const onDragEnd = (result, lists, setLists) => {
 	} else { //if (destination)
 		return;
 	}
-
-	
-	
 }
-
-
-
 
 const Kanban = () => {
 
@@ -127,7 +121,7 @@ const Kanban = () => {
 									                        style={{
 									                        	...provided.draggableProps.style,
 									                        	userSelect: 'none',
-									                        	backgroundColor: snapshot.isDragging ? 'lightblue' : 'white',
+									                        	backgroundColor: snapshot.isDragging ? 'white' : 'white',
 
 									                        }}
 									                    >

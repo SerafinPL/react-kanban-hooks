@@ -42,7 +42,7 @@ const addTask = () => {
 							ref={provided.innerRef} 
 							style={{
                					backgroundColor: snapshot.isDraggingOver ? 'lightgrey' : 'white',
-               					paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
+               					//paddingBottom: snapshot.isDraggingOver ? '5%' : '0px'
 
                				}}
 						>
