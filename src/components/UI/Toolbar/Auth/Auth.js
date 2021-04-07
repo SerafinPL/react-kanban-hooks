@@ -26,6 +26,7 @@ const Auth = (props) => {
 	return(
 	
 			<div className={classes.auth}>
+				<span onClick={props.clickX} className={classes.rightX}>&#9746;</span>
 				<p>Login:</p>
 				<Input 
 					value={login}

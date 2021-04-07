@@ -10,7 +10,8 @@ const Toolbar = () => {
 
 	const context = useContext(AuthContext);
 
-	const [regis,setRegis] = useState(false)
+	const [regis,setRegis] = useState(false);
+	const [showDialog, setShowDialog] =useState(false);
 
 	const loginOn = () => {
 		context.loginOn();
@@ -32,12 +33,13 @@ const Toolbar = () => {
 				</React.Fragment>
 				:
 				<React.Fragment>	
-					<NaviItem text='Zaloguj' click={() => setRegis(false)}></NaviItem>
-					<NaviItem text='Zarejestruj' click={() => setRegis(true)}></NaviItem>
+					<NaviItem text='Zaloguj' click={() => {setRegis(false); setShowDialog(true);}}></NaviItem>
+					<NaviItem text='Zarejestruj' click={() => {setRegis(true); setShowDialog(true);}}></NaviItem>
 				</React.Fragment>
 				
 				}
-				<Auth registration={regis}/>
+				{showDialog && <Auth registration={regis} clickX={() => setShowDialog(false)}/>}
+				
 
 			</div>
 			
