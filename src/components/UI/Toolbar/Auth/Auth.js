@@ -6,6 +6,8 @@ import Button from '../../Button/Button';
 
 import AuthContext from '../../../../containers/context/context';
 
+import useRegLogHook from '../../../../containers/ownHook/reg-log';
+
 const Auth = (props) => {
 
 	const context = useContext(AuthContext);
@@ -14,10 +16,19 @@ const Auth = (props) => {
 	const [passwd, setPasswd] = useState('');
 	const [passwd2, setPasswd2] = useState('');
 
+	const {sendAuth} = useRegLogHook();
+
 
 	const singFunc = () => {
 		if (props.registration){ //Refinsration
+			const url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA';
+			const data = {
+				email: login,
+				password: passwd,
+				returnSecureToken: true
+			}
 
+			sendAuth(url, data);
 		} else { // Login
 
 		}
