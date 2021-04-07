@@ -92,7 +92,8 @@ const Auth = (props) => {
 
 	if (userId) {
 		display = null;
-		console.log(time); 
+		console.log(time);
+		 
 	}
 
 	return display;

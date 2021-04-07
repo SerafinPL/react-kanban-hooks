@@ -14,11 +14,17 @@ function App() {
 	const [isAuth, setIsAuth] = useState(false);
 	const [userId, setUserId] = useState(null);
 	const [token, setToken]	= useState(null);
-	const [expirationDate, setExpirationDate] = useState(null); 
+	const [expirationDate, setExpirationDate] = useState(null);
+	const [email, setEmail] = useState(null); 
 
 
-	const loginOnHandler = () => {
+	const loginOnHandler = (userId, token, expirationDate, email) => {
 		setIsAuth(true);
+		setUserId(userId);
+		setToken(token);
+		setExpirationDate(expirationDate);
+		setEmail(email);
+
 	};
 
 	const loginOffHandler = () => {
@@ -26,6 +32,7 @@ function App() {
 		setUserId(null);
 		setToken(null);
 		setExpirationDate(null);
+		setEmail(null);
 	};
 
 
@@ -34,7 +41,11 @@ function App() {
 
   return (
   <FullContext.Provider value={{
-  		isAuth: isAuth, 
+  		isAuth: isAuth,
+  		userId: userId,
+  		token: token,
+  		expirationDate: expirationDate,
+  		email: email,
   		loginOn: loginOnHandler, 
   		loginOff: loginOffHandler}}>
     <div className="App">
