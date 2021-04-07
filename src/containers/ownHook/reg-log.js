@@ -68,7 +68,7 @@ const useRegLogHook = () => {
 	}
 
 	const logout = () => {
-
+		dispatchAuth({type: 'LOGOUT'});
 	}
 
 	return {
@@ -78,7 +78,8 @@ const useRegLogHook = () => {
 		time: authState.time,
 		email: authState.email,
 		userId: authState.userId,
-		loading: authState.loading
+		loading: authState.loading,
+		logout: logout
 	}
 }
 

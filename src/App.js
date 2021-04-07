@@ -12,6 +12,8 @@ import FullContext from './containers/context/context';
 
 function App() {
 
+	const {logout} = useRegLogHook();
+
 	const [isAuth, setIsAuth] = useState(false);
 	const [userId, setUserId] = useState(null);
 	const [token, setToken]	= useState(null);
@@ -35,6 +37,7 @@ function App() {
 		setToken(null);
 		setExpirationDate(null);
 		setEmail(null);
+		logout();
 	};
 
 
