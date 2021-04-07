@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import classes from './Toolbar.module.css'
 
 import NaviItem from './Navi/NaviItem';
+import Auth from './Auth/Auth';
 
 import AuthContext from '../../../containers/context/context';
 
 const Toolbar = () => {
 
 	const context = useContext(AuthContext);
+
+	const [regis,setRegis] = useState(false)
 
 	const loginOn = () => {
 		context.loginOn();
@@ -16,6 +19,11 @@ const Toolbar = () => {
 	const loginOff = () => {
 		context.loginOff();
 	}
+
+	const login = () => {
+		setRegis(false)
+	}
+
 
 	return(
 	
@@ -26,12 +34,12 @@ const Toolbar = () => {
 				</React.Fragment>
 				:
 				<React.Fragment>	
-					<NaviItem text='Zaloguj' click={loginOn}></NaviItem>
-					<NaviItem text='Zarejestruj'></NaviItem>
+					<NaviItem text='Zaloguj' click={() => setRegis(false)}></NaviItem>
+					<NaviItem text='Zarejestruj' click={() => setRegis(true)}></NaviItem>
 				</React.Fragment>
 				
 				}
-				
+				<Auth registration={regis}/>
 
 			</div>
 			
