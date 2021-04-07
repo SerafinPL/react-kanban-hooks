@@ -3,7 +3,10 @@ import React from 'react';
 
 const context = React.createContext({
 	isAuth: false,
-	login: () =>  {}
+	login: () =>  {},
+	userId: null,
+	token: null,
+	expirationDate: null
 });
 
 export default context
