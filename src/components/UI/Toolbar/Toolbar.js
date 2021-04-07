@@ -20,9 +20,7 @@ const Toolbar = () => {
 		context.loginOff();
 	}
 
-	const login = () => {
-		setRegis(false)
-	}
+	
 
 
 	return(

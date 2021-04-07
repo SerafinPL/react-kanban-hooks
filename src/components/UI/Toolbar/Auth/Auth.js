@@ -15,7 +15,13 @@ const Auth = (props) => {
 	const [passwd2, setPasswd2] = useState('');
 
 
+	const singFunc = () => {
+		if (props.registration){ //Refinsration
 
+		} else { // Login
+
+		}
+	}
 
 	return(
 	
@@ -46,7 +52,7 @@ const Auth = (props) => {
 						}						
 					</React.Fragment>
 				}
-				<Button classes={'buttonGreen'}>{props.registration ? 'Zarejestruj' : 'Zaloguj'}</Button>
+				<Button classes={'buttonGreen'}  click={singFunc} >{props.registration ? 'Zarejestruj' : 'Zaloguj'}</Button>
 
 				
 			</div>
