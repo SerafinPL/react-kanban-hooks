@@ -91,7 +91,8 @@ const Auth = (props) => {
 		);
 
 	if (userId) {
-		display = null; 
+		display = null;
+		console.log(time); 
 	}
 
 	return display;

@@ -47,11 +47,10 @@ const useRegLogHook = () => {
 		dispatchAuth({type: 'SEND'});
 		axios.post(url, data)
 			.then(response => {
-				console.log('res',response);
 				dispatchAuth({
 					type: 'RESPONSE', 
 					token: response.data.idToken,
-					time: new Date(new Date().getTime() + response.data.expiresIn * 1000),
+					time: new Date(new Date().getTime() + response.data.expiresIn * 1000 - 2000),
 					email: response.data.email,
 					userId: response.data.localId
 				});
@@ -64,6 +63,7 @@ const useRegLogHook = () => {
 				})
 				 
 			});
+
 			
 	}
 
