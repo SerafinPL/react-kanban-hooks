@@ -35,7 +35,13 @@ const reducer = (curState, action) => {
 					loading: false
 				}
 		case 'LOGOUT':
-		return {...initState}
+		return {	token: null,
+					userId: null,
+					error: null,
+					time: null,
+					email: null,
+					loading: false
+				}
 	}// switch
 }
 
@@ -62,14 +68,17 @@ const useRegLogHook = () => {
 				dispatchAuth({
 				 	type: 'ERROR',
 				 	error: err.message
-				})
+				});
 				 
 			});
 	}
 
 	const logout = () => {
 		dispatchAuth({type: 'LOGOUT'});
+		console.log(authState.userId);
 	}
+
+	
 
 	return {
 		sendAuth: sendAuth,
@@ -81,6 +90,7 @@ const useRegLogHook = () => {
 		loading: authState.loading,
 		logout: logout
 	}
+
 }
 
 export default useRegLogHook;

@@ -33,6 +33,7 @@ const Auth = (props) => {
 		if (userId) {
 			singOn(userId, token, time, email);
 		}
+		console.log(userId);
 	}, [userId, token, time, email])
 
 
@@ -56,6 +57,8 @@ const Auth = (props) => {
 			sendAuth(url, data);
 		}
 	}
+
+
 
 	let display = (
 		<div className={classes.auth}>
@@ -100,7 +103,7 @@ const Auth = (props) => {
 		</div>
 		);
 
-	if (userId) {
+	if (context.userId) {
 		display = null;
 	}
 

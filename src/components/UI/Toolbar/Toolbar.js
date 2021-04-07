@@ -19,6 +19,7 @@ const Toolbar = () => {
 
 	const loginOff = () => {
 		context.loginOff();
+		
 	}
 
 	
