@@ -26,8 +26,8 @@ const NewColumn = (props) => {
 				placeholder='nazwa kolumny'
 				//onKeyDown={colHandlerKeyPress}
 				
-				>
-			</Input>
+				/>
+			
 			<Button click={addCol} classes={'buttonCol'} disabled={inputCol === '' ? true: false}>Dodaj Kolumne</Button>
 	 		
 		</React.Fragment> 

@@ -70,8 +70,8 @@ const addTask = () => {
 						onChange={(event) => setInputTask(event.target.value)}
 						placeholder='nazwa zadania'
 						//onKeyDown={taskHandlerKeyPress}
-						>
-					</Input>
+						/>
+					
 					<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>
 				</div>
 			</div>
