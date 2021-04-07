@@ -34,6 +34,8 @@ const reducer = (curState, action) => {
 		return { 	error: action.error,
 					loading: false
 				}
+		case 'LOGOUT':
+		return {...initState}
 	}// switch
 }
 
@@ -63,8 +65,10 @@ const useRegLogHook = () => {
 				})
 				 
 			});
+	}
 
-			
+	const logout = () => {
+
 	}
 
 	return {

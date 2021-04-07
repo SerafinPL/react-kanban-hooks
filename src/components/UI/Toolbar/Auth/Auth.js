@@ -27,9 +27,19 @@ const Auth = (props) => {
 		} else {
 			setValid(passwd.length > 5 && login !== '');
 		}
-	}, [passwd, passwd2, login])
-	
+	}, [passwd, passwd2, login]);
 
+	useEffect(() => {
+		if (userId) {
+			singOn(userId, token, time, email);
+		}
+	}, [userId, token, time, email])
+
+
+	
+	const singOn = (userId, token, expirationDate, email) => {
+		context.loginOn(userId, token, expirationDate, email);
+	}
 
 	const singFunc = () => {
 
@@ -92,8 +102,6 @@ const Auth = (props) => {
 
 	if (userId) {
 		display = null;
-		console.log(time);
-		 
 	}
 
 	return display;

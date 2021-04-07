@@ -4,6 +4,7 @@ import './App.css';
 import Toolbar from './components/UI/Toolbar/Toolbar';
 import Kanban from './containers/Kanban/Kanban';
 
+import useRegLogHook from './containers/ownHook/reg-log';
 
 import FullContext from './containers/context/context';
 
@@ -24,6 +25,7 @@ function App() {
 		setToken(token);
 		setExpirationDate(expirationDate);
 		setEmail(email);
+
 
 	};
 
