@@ -6,18 +6,22 @@ let res, error = null;
 
 const useData = () => {
 
-	const [loading, setLoading] = useState(false);
+	const [sending, setSending] = useState(false);
+	const [fatching, setFatching] = useState(false);
 
-	const saveData = (userId, data) => {
-		setLoading(true);
-		axios.post(`https://kanban-hooks-default-rtdb.firebaseio.com/${userId}`, data)
+
+	const saveData = (userId, data, token) => {
+		setSending(true);
+		res = null; 
+		error = null;
+		axios.put(`https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`, data)
 		.then(response => {
 			res = response;
-			setLoading(false);
+			setSending(false);
 		})
 		.catch(err => {
 			error = err
-			setLoading(false);
+			setSending(false);
 		})
 	}
 
@@ -25,6 +29,8 @@ const useData = () => {
 		saveData: saveData,
 		response: res,
 		error: error,
-		loadingState: loading
+		sending: sending
 	}
 }
+
+export default useData;

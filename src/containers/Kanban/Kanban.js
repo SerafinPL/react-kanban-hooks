@@ -9,7 +9,7 @@ import useData from '../ownHook/data';
 
 const onDragEnd = (result, lists, setLists) => {
 	const {source, destination, type} = result;
-	console.log(result);
+	
 
 	if (destination){
 		if (type === 'task'){
@@ -89,9 +89,10 @@ const Kanban = () => {
 		setLists([...columns]);
 	};
 
+	const {saveData, sending, error, response} = useData();
 
 	useEffect(() => {
-
+		saveData(context.userId, lists, context.token);
 	}, [lists]);
 
 
@@ -163,7 +164,9 @@ const Kanban = () => {
 					
 				</DragDropContext>
 				<div className={classes.infoBox}>
-					test
+					{sending && 'Wysyłam Dane...'}
+					{response && 'Dane Wysłane'}
+					{error && 'Danych nie udało się wysłać'}
 				</div>	
 			</React.Fragment>		
 		}	

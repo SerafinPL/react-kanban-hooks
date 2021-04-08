@@ -31,7 +31,7 @@ const Auth = (props) => {
 		} else {
 			setValid(passwd.length > 5 && login !== '');
 		}
-	},);
+	});
 
 	useEffect(() => {
 		if (userId) {
