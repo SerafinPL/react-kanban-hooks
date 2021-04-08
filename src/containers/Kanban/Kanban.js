@@ -192,9 +192,9 @@ const Kanban = () => {
 					
 				</DragDropContext>
 				<div className={classes.infoBox}>
-					{sending && 'Wysyłam Dane...'}
-					{responseSend && 'Dane Wysłane'}
-					{errorSend && 'Danych nie udało się wysłać'}
+					{sending && 'Zapisuje zmiany...'}
+					{responseSend && 'Zapisano zmiany'}
+					{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
 					{fatching && 'Pobieram Dane...'}
 					{responseFatch && 'Dane Pobrane'}
 					{errorFatch && 'Danych nie udało się pobrać'}

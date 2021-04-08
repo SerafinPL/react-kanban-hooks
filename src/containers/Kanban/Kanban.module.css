@@ -68,11 +68,11 @@
 }
 
 .infoBox{
-	position: fixed;
-	
+	width: 100%;
 	background-color: transparent;
 	bottom: 0px;
 	text-align: right;
 	right: 0px;
 	padding-right: 20px;
+	font-size: 0.8em;
 }
