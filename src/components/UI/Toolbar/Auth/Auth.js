@@ -19,6 +19,9 @@ const Auth = (props) => {
 
 	const {sendAuth, error, token, time, email, userId, loading} = useRegLogHook();
 
+	const singOn = useCallback((userId, token, expirationDate, email) => {
+		context.loginOn(userId, token, expirationDate, email);
+	}, []);
 
 
 	useEffect(() => {
@@ -39,10 +42,7 @@ const Auth = (props) => {
 	console.log('rendering');
 
 	
-	const singOn = useCallback((userId, token, expirationDate, email) => {
-		context.loginOn(userId, token, expirationDate, email);
-	}, []);
-
+	
 	const singFunc = () => {
 
 		const data = {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import classes from './Toolbar.module.css'
 
 import NaviItem from './Navi/NaviItem';
@@ -22,7 +22,15 @@ const Toolbar = () => {
 
 	}
 
-	
+	useEffect(() => {
+		if (context.expirationDate){
+			console.log(context.expirationDate.getTime() - new Date().getTime());
+
+			setTimeout(() => {
+				context.loginOff();
+			},context.expirationDate.getTime() -  new Date().getTime());
+		}
+	} ,[context.expirationDate]);
 
 
 	return(
