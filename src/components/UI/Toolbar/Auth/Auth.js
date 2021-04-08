@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react';
+import React, { useContext, useState, useEffect, useCallback, useRef } from 'react';
 import classes from './Auth.module.css'
 
 import Input from '../../Input/Input';
@@ -23,8 +23,7 @@ const Auth = (props) => {
 		context.loginOn(userId, token, expirationDate, email);
 	}, []);
 
-
-
+	
 
 	useEffect(() => {
 		if (props.registration){
@@ -32,7 +31,7 @@ const Auth = (props) => {
 		} else {
 			setValid(passwd.length > 5 && login !== '');
 		}
-	}, [passwd, passwd2, login]);
+	},);
 
 	useEffect(() => {
 		if (userId) {
@@ -63,7 +62,8 @@ const Auth = (props) => {
 
 
 
-	let display = (
+	return  (
+	!context.userId &&		
 		<div className={classes.auth}>
 			{ !loading ?
 				<React.Fragment>	
@@ -71,15 +71,19 @@ const Auth = (props) => {
 					{error && <p style={{color: 'red'}}>Podano Błędne dane spróbuj jeszcze raz.</p>}
 					<p>Login:</p>
 					<Input 
+						
 						value={login}
 						onChange={event => setLogin(event.target.value)}
 						type='text'
+						
 					/>
 					<p>Hasło:</p>
-					<Input 
+					<Input
+						 
 						value={passwd}
 						onChange={event => setPasswd(event.target.value)}
 						type='password'
+						
 					/>
 					{props.registration &&
 						<React.Fragment>
@@ -104,13 +108,10 @@ const Auth = (props) => {
 			: <p>Oczekujemy na serwer!</p>}
 
 		</div>
+	
 		);
 
-	if (context.userId) {
-		display = null;
-	}
-
-	return display;
+	return 
 };
 
 export default Auth;
