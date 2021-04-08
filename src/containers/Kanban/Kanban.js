@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import classes from './Kanban.module.css';
 import ExistingColumn from '../../components/Column/ExistingColumn/ExistingColumn';
 import NewColumn from '../../components/Column/NewColumn/NewColumn';
@@ -89,6 +89,10 @@ const Kanban = () => {
 		setLists([...columns]);
 	};
 
+
+	useEffect(() => {
+		
+	}, [lists]);
 
 
 	return(

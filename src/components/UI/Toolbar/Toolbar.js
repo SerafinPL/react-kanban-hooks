@@ -39,7 +39,7 @@ const Toolbar = () => {
 				{context.isAuth ? 
 				<React.Fragment>
 					<NaviItem text='Wyloguj' click={loginOff}></NaviItem>
-					<span className={classes.right}>{context.email}</span>
+					<span className={classes.right}>Zalogowany jako: {context.email}</span>
 					
 				</React.Fragment>
 				:
