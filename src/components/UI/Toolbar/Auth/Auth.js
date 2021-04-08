@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 import classes from './Auth.module.css'
 
 import Input from '../../Input/Input';
@@ -34,13 +34,14 @@ const Auth = (props) => {
 			singOn(userId, token, time, email);
 		}
 		console.log(userId);
-	}, [userId, token, time, email])
+	}, [userId, token, time, email, singOn]);
 
+	console.log('rendering');
 
 	
-	const singOn = (userId, token, expirationDate, email) => {
+	const singOn = useCallback((userId, token, expirationDate, email) => {
 		context.loginOn(userId, token, expirationDate, email);
-	}
+	}, []);
 
 	const singFunc = () => {
 
