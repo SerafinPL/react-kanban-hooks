@@ -89,11 +89,37 @@ const Kanban = () => {
 		setLists([...columns]);
 	};
 
-	const {saveData, sending, error, response} = useData();
+	const {saveData, fatchData, sending, errorSend, responseSend, fatching, errorFatch, responseFatch} = useData();
 
 	useEffect(() => {
-		saveData(context.userId, lists, context.token);
+		if (context.isAuth) {
+			saveData(context.userId, lists, context.token);
+		}
 	}, [lists]);
+
+	useEffect(() =>{
+		if (context.isAuth) {
+			fatchData(context.userId, context.token)
+		}
+
+	}, [context.isAuth]);
+
+	useEffect(() => {
+		
+		if (responseFatch) {
+			console.log(responseFatch.data);
+			const data = [...responseFatch.data];
+			data.map(value => {
+				if (!value.tasks) {
+					value.tasks = [];
+				}
+			});
+			console.log(data);
+
+			setLists(data);	
+		}
+		
+	},[responseFatch]);
 
 
 	return(
@@ -165,8 +191,12 @@ const Kanban = () => {
 				</DragDropContext>
 				<div className={classes.infoBox}>
 					{sending && 'Wysyłam Dane...'}
-					{response && 'Dane Wysłane'}
-					{error && 'Danych nie udało się wysłać'}
+					{responseSend && 'Dane Wysłane'}
+					{errorSend && 'Danych nie udało się wysłać'}
+					{fatching && 'Pobieram Dane...'}
+					{responseFatch && 'Dane Pobrane'}
+					{errorFatch && 'Danych nie udało się pobrać'}
+
 				</div>	
 			</React.Fragment>		
 		}	
