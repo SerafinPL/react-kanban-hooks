@@ -11,5 +11,6 @@
 
 .naviItem:hover{
 	border-bottom: 1px solid #000;
+	background-color: #EA9772;
 }
 
