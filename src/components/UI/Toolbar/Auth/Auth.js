@@ -24,6 +24,8 @@ const Auth = (props) => {
 	}, []);
 
 
+
+
 	useEffect(() => {
 		if (props.registration){
 			setValid(passwd === passwd2 && passwd.length > 5 && login !== '');
@@ -97,7 +99,7 @@ const Auth = (props) => {
 							}						
 						</React.Fragment>
 					}
-					<Button classes={'buttonGreen'} click={singFunc} >{props.registration ? 'Zarejestruj' : 'Zaloguj'}</Button>
+					<Button classes={'buttonGreen'} disabled={!valid} click={singFunc} >{props.registration ? 'Zarejestruj' : 'Zaloguj'}</Button>
 				</React.Fragment>	
 			: <p>Oczekujemy na serwer!</p>}
 

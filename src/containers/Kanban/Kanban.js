@@ -5,7 +5,7 @@ import NewColumn from '../../components/Column/NewColumn/NewColumn';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 import FullContext from '../context/context';
-
+import useData from '../ownHook/data';
 
 const onDragEnd = (result, lists, setLists) => {
 	const {source, destination, type} = result;
@@ -91,14 +91,15 @@ const Kanban = () => {
 
 
 	useEffect(() => {
-		
+
 	}, [lists]);
 
 
 	return(
 		
-			<div className={classes.mainBox} >
-			{context.isAuth &&
+		<div className={classes.mainBox} >
+		{context.isAuth &&
+			<React.Fragment>
 			
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					<Droppable droppableId='main' type='column' direction='horizontal'>
@@ -161,12 +162,14 @@ const Kanban = () => {
 					</Droppable>
 					
 				</DragDropContext>
-					
-					
-			}	
-			</div>
+				<div className={classes.infoBox}>
+					test
+				</div>	
+			</React.Fragment>		
+		}	
+		</div>
 		
-		);
+	);
 };
 
 export default Kanban;

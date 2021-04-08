@@ -66,3 +66,13 @@
 	
 
 }
+
+.infoBox{
+	position: fixed;
+	
+	background-color: transparent;
+	bottom: 0px;
+	text-align: right;
+	right: 0px;
+	padding-right: 20px;
+}
