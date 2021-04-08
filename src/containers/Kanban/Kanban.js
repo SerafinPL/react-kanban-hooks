@@ -107,16 +107,18 @@ const Kanban = () => {
 	useEffect(() => {
 		
 		if (responseFatch) {
-			console.log(responseFatch.data);
-			const data = [...responseFatch.data];
-			data.map(value => {
-				if (!value.tasks) {
-					value.tasks = [];
-				}
-			});
-			console.log(data);
+			if (responseFatch.data) {
+				console.log(responseFatch.data);
+				const data = [...responseFatch.data];
+				data.map(value => {
+					if (!value.tasks) {
+						value.tasks = [];
+					}
+				});
+				console.log(data);
 
-			setLists(data);	
+				setLists(data);	
+			}
 		}
 		
 	},[responseFatch]);
