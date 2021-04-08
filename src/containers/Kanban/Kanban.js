@@ -139,7 +139,7 @@ const Kanban = () => {
 										{...provided.droppableProps}
 										ref={provided.innerRef} 
 										style={{
-			               					backgroundColor: snapshot.isDraggingOver ? 'white' : 'white',
+			               					//backgroundColor: snapshot.isDraggingOver ? '#F9F3E6;' : '#F9F3E6;',
 			               					//paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
 
 			               				}}>
@@ -155,7 +155,7 @@ const Kanban = () => {
 									                        style={{
 									                        	...provided.draggableProps.style,
 									                        	userSelect: 'none',
-									                        	backgroundColor: snapshot.isDragging ? 'white' : 'white',
+									                        	backgroundColor: snapshot.isDragging ? '#fba883' : '#EA9772',
 
 									                        }}
 									                    >

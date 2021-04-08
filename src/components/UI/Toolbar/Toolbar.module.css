@@ -1,15 +1,28 @@
 .toolbar {
 	width: 100%;
 	color: #000;
-	background-color: #FFF;
+	background-color: #F9F3E6;
 	padding-top: 10px;
 	padding-right: 5px;
-	height: 25px;
+	height: 50px;
 	/*border: 1px solid #000;*/
+	z-index: 20;
 	
 }
 
 .right {
 	float: right;
+}
+
+.kanban{
+	font-family: 'Anton', sans-serif;
+	font-size: 2em;
+	text-align: center;
+	height: 50px;
+	width: 100vw;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	
 }
 

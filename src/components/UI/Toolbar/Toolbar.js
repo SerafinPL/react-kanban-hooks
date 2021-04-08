@@ -36,10 +36,11 @@ const Toolbar = () => {
 	return(
 	
 			<div className={classes.toolbar}>
+				<span className={classes.kanban}>KANBAN</span>
 				{context.isAuth ? 
 				<React.Fragment>
 					<NaviItem text='Wyloguj' click={loginOff}></NaviItem>
-					<span className={classes.right}>Zalogowany jako: {context.email}</span>
+					<span className={classes.right}>{context.email}</span>
 					
 				</React.Fragment>
 				:

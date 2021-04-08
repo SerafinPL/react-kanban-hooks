@@ -41,7 +41,7 @@ const addTask = () => {
 							{...provided.droppableProps}
 							ref={provided.innerRef} 
 							style={{
-               					backgroundColor: snapshot.isDraggingOver ? 'lightgrey' : 'white',
+               					backgroundColor: snapshot.isDraggingOver ? '#C87550' : '#EA9772',
                					//paddingBottom: snapshot.isDraggingOver ? '5%' : '0px'
 
                				}}

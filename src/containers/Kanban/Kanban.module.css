@@ -1,12 +1,13 @@
 .mainBox{
 	margin: 10px;
+	background-color: #F9F3E6;
 }
 
 
 .kanban {
 	width: 100%;
 	color: #000;
-	background-color: #FFF;
+	background-color: #F9F3E6;
 	height: 100%;
 	/*border: 1px solid #000;*/
 
@@ -22,7 +23,7 @@
  .column {
 	width: 200px;
 	color: #000;
-	background-color: #FFF;
+	
 	border: 1px solid #000;
 	margin: 10px 0;
 	margin-right: 20px;
@@ -55,7 +56,7 @@
  .itemNew {
 	width: 100%;
 	color: #000;
-	background-color: #FFF;
+	background-color: #EA9772;
 	border: 1px solid #000;
 	
 	text-align: center;
