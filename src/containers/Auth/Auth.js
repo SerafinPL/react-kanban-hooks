@@ -114,4 +114,4 @@ const Auth = (props) => {
 	return 
 };
 
-export default Auth;
+export default React.memo(Auth);

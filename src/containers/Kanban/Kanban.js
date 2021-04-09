@@ -56,7 +56,7 @@ const onDragEnd = (result, lists, setLists) => {
 }
 
 const Kanban = () => {
-
+console.log('Kanban Rendering');
 	const context = useContext(FullContext);
 
 	const [lists, setLists] = useState([]);
@@ -236,4 +236,4 @@ const Kanban = () => {
 	);
 };
 
-export default Kanban;
+export default React.memo(Kanban);

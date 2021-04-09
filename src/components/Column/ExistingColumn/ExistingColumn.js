@@ -111,4 +111,4 @@ const addTask = () => {
 		</>
 	)
 }
-export default ExistingColumn;
+export default React.memo(ExistingColumn);
