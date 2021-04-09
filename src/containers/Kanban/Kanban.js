@@ -96,7 +96,7 @@ const Kanban = () => {
 		setLists([...columns]);
 	}
 
-	const editTaskName = (idList, idTask, newName) => {
+	const editTaskName = (idList, newName, idTask) => {
 		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
 		const columns = [...lists];
 		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));

@@ -56,7 +56,8 @@ const Task = (props) => {
 							clLeft='buttonRed'
 							right='Anuluj'
 							clRight='buttonGreen'
-							identy={props.identyTask}
+							identy={props.identyList}
+							identyTask={props.identyTask}
 							name={props.name}
 						/>
 						}
