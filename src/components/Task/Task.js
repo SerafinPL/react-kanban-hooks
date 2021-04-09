@@ -30,6 +30,7 @@ const Task = (props) => {
 						<header className={classes.header}>
 							<span className={classes.left} {...provided.dragHandleProps}>&#9776;</span>
 							<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
+							<span className={classes.right} >...</span>
 						</header>
 						<input type='checkbox' checked={checkbox} onChange={(event) => {setCheckbox(event.target.checked)}}/>
 						<p className={checkbox ? classes.line : null}>

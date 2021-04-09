@@ -7,11 +7,13 @@ import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import Task from '../../Task/Task';
 import Modal from '../../UI/Modal/Modal';
+import Dialog from '../../UI/Dialog/Dialog';
 
 const ExistingColumn = (props) => {
 
 const [inputTask, setInputTask] = useState('');
 const [modal, setModal] = useState(false);
+const [dialog, setDialog] = useState(false);
 
 
 const addTask = () => {
@@ -88,6 +90,19 @@ const addTask = () => {
 						clRight='buttonGreen'
 					/>
 			}
+
+			{dialog && <Dialog 
+						alert={`Edycja Listy ${props.name}?`} 
+						ok={() => props.removeColumn(props.identy)}
+						cancel={() => setModal(false)}
+						left='Zmień'
+						clLeft='buttonRed'
+						right='Anuluj'
+						clRight='buttonGreen'
+					/>
+			}
+
+
 							
 		
 		</>
