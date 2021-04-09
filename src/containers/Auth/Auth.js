@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useCallback, useRef } from 'react';
 import classes from './Auth.module.css'
 
-import Input from '../../Input/Input';
-import Button from '../../Button/Button';
+import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 
-import AuthContext from '../../../../containers/context/context';
+import AuthContext from '../context/context';
 
-import useRegLogHook from '../../../../containers/ownHook/reg-log';
+import useRegLogHook from '../ownHook/reg-log';
 
 const Auth = (props) => {
 

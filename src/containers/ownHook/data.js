@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {useState} from 'react';
 
-let resSend, error = null;
+
 
 const useData = () => {
 

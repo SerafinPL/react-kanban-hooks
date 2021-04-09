@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import classes from './Toolbar.module.css'
 
 import NaviItem from './Navi/NaviItem';
-import Auth from './Auth/Auth';
+import Auth from '../../../containers/Auth/Auth';
 
 import AuthContext from '../../../containers/context/context';
 
