@@ -3,6 +3,7 @@ import classes from './Dialog.module.css';
 
 import Button from '../Button/Button';
 import BackDrop from '../BackDrop/BackDrop';
+import Input from '../Input/Input';
 
 
 const Dialog = (props) => {
@@ -13,8 +14,14 @@ const Dialog = (props) => {
 			<BackDrop click={props.cancel}>
 				<div className={classes.dialog}>
 					<h1>{props.alert}?</h1>
-					
-					<Button classes={props.clLeft} click={props.ok}>{props.left}</Button>
+					<Input
+						type='text' 
+						value={inputName} 
+						onChange={(event) => setInputName(event.target.value)}
+						placeholder='nowa nazwa listy'
+						//onKeyDown={taskHandlerKeyPress}
+						/>
+					<Button classes={props.clLeft} click={() => props.ok(props.identy, inputName)}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
 				</div>
 			</BackDrop>

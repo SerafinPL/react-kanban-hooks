@@ -93,12 +93,14 @@ const addTask = () => {
 
 			{dialog && <Dialog 
 						alert={`Edycja Listy ${props.name}?`} 
-						ok={() => props.removeColumn(props.identy)}
+						ok={props.editColumnName}
 						cancel={() => setDialog(false)}
 						left='Zmień'
 						clLeft='buttonRed'
 						right='Anuluj'
 						clRight='buttonGreen'
+						identy={props.identy}
+						name={props.name}
 					/>
 			}
 

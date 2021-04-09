@@ -7,13 +7,16 @@ import BackDrop from '../BackDrop/BackDrop';
 
 const Modal = (props) => {
 	return(
-			<BackDrop click={props.cancel}>
-				<div className={classes.modal}>
+			<div>
+				
+				<BackDrop click={props.cancel}></BackDrop>
+				<div className={classes.modal} >
 					<h1>{props.alert}?</h1>
 					<Button classes={props.clLeft} click={props.ok}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
 				</div>
-			</BackDrop>
+			</div>
+			
 		);
 };
 

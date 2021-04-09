@@ -175,6 +175,7 @@ const Kanban = () => {
 																addTask={addTask} 
 																removeTask={removeTask}
 																removeColumn={removeColumn}
+																editColumnName={editColumnName}
 
 															/>
 															
