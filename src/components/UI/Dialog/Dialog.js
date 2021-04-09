@@ -10,21 +10,27 @@ const Dialog = (props) => {
 
 	const [inputName, setInputName] = useState(props.name);
 
+	const editName = () => {
+		props.ok(props.identy, inputName);
+		props.cancel();
+	}
+
 	return(
-			<BackDrop click={props.cancel}>
-				<div className={classes.dialog}>
-					<h1>{props.alert}?</h1>
-					<Input
-						type='text' 
-						value={inputName} 
-						onChange={(event) => setInputName(event.target.value)}
-						placeholder='nowa nazwa listy'
-						//onKeyDown={taskHandlerKeyPress}
-						/>
-					<Button classes={props.clLeft} click={() => props.ok(props.identy, inputName)}>{props.left}</Button>
-					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
-				</div>
-			</BackDrop>
+		<div>	
+			<BackDrop click={props.cancel}/>
+			<div className={classes.dialog}>
+				<h1>{props.alert}?</h1>
+				<Input
+					type='text' 
+					value={inputName} 
+					onChange={(event) => setInputName(event.target.value)}
+					placeholder='nowa nazwa listy'
+					//onKeyDown={taskHandlerKeyPress}
+					/>
+				<Button classes={props.clLeft} click={editName}>{props.left}</Button>
+				<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
+			</div>
+		</div>
 		);
 };
 
