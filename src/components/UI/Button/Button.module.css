@@ -6,18 +6,19 @@
 	cursor: pointer;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
-	
+
 }
 
 .buttonGreen{
-	background-color: #00b33c;
-	border-style: inset;
-	border-color: #00ff55;
+	background-color: 	#cfcf17;
+	/*border-style: inset;
+	border-color: #00ff55;*/
+	border: 0px;
 	font-size: 20px;
 	font-weight: bold;
 	padding: 2%;
 	cursor: pointer;
-	margin: 2px;
+	margin: 10px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	
@@ -31,14 +32,15 @@
 }
 
 .buttonRed{
-	background-color: #ff4d4d;
-	border-style: inset;
-	border-color: #ff0000;
+	background-color: #ff704d;
+	/*border-style: inset;
+	border-color: #ff0000;*/
+	border: 0px;
 	font-size: 20px;
 	font-weight: bold;
 	padding: 2%;
 	cursor: pointer;
-	margin: 2px;
+	margin: 10px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 

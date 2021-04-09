@@ -3,7 +3,7 @@
 .modal{
 	width: 400px;
 	height: 400px;
-	border: 1px solid #aaa;
+	border: 1px solid #000;
 	background-color: #FFF;
 	text-align: center;
 	position: fixed;
