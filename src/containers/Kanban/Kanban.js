@@ -96,6 +96,18 @@ const Kanban = () => {
 		setLists([...columns]);
 	}
 
+	const editTaskName = (idList, idTask, newName) => {
+		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
+		const columns = [...lists];
+		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));
+		const newTask = [...columns[positionOfColumn].tasks]
+		newTask[positionOfTask].name = newName;
+
+		columns[positionOfColumn].tasks = [...newTask];
+
+		setLists([...columns]);
+	}
+
 	const {saveData, fatchData, sending, errorSend, responseSend, fatching, errorFatch, responseFatch} = useData();
 
 	useEffect(() => {
@@ -176,6 +188,7 @@ const Kanban = () => {
 																removeTask={removeTask}
 																removeColumn={removeColumn}
 																editColumnName={editColumnName}
+																editTaskName={editTaskName}
 
 															/>
 															

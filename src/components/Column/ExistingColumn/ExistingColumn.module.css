@@ -32,12 +32,8 @@
 .adding {
 	border: 1px solid #000;
 	/*border-top: 2px solid #000;*/
-	
 	align-self: flex-end;
-	
-	
 	width: 100%;
-
 }
 
 .drop{

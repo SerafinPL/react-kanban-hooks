@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import classes from './Task.module.css'
 
 import Modal from '../UI/Modal/Modal';
+import Dialog from '../UI/Dialog/Dialog';
 import {Draggable} from 'react-beautiful-dnd';
 
 const Task = (props) => {
@@ -9,6 +10,7 @@ const Task = (props) => {
 
 	const [checkbox, setCheckbox] = useState(false);
 	const [modal, setModal] = useState(false);
+	const [dialog, setDialog] = useState(false);
 
 	return(
 		<Draggable key={props.identyTask} draggableId={props.identyTask} index={props.index}>
@@ -30,15 +32,15 @@ const Task = (props) => {
 						<header className={classes.header}>
 							<span className={classes.left} {...provided.dragHandleProps}>&#9776;</span>
 							<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
-							<span className={classes.right} >...</span>
+							<span className={classes.right} onClick={() => setDialog(true)}>...</span>
 						</header>
-						<input type='checkbox' checked={checkbox} onChange={(event) => {setCheckbox(event.target.checked)}}/>
+						<input className={classes.Checkbox}type='checkbox' checked={checkbox} onChange={(event) => {setCheckbox(event.target.checked)}}/>
 						<p className={checkbox ? classes.line : null}>
 							
 							{props.name}
 						</p>
 						{modal && <Modal 
-									alert={`Usunąć Zadanie ${props.name}?`} 
+									alert={`Usunąć Zadanie: ${props.name}?`} 
 									ok={() => props.removeTask(props.identyList, props.identyTask)}
 									cancel={() => setModal(false)}
 									left='Usuń'
@@ -46,6 +48,18 @@ const Task = (props) => {
 									right='Anuluj'
 									clRight='buttonGreen'
 								/>}
+						{dialog && <Dialog 
+							alert={`Edycja Zadania: ${props.name}?`} 
+							ok={props.editTaskName}
+							cancel={() => setDialog(false)}
+							left='Zmień'
+							clLeft='buttonRed'
+							right='Anuluj'
+							clRight='buttonGreen'
+							identy={props.identyTask}
+							name={props.name}
+						/>
+						}
 						
 					</div>
 				)

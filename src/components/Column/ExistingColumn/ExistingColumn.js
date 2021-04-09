@@ -58,6 +58,7 @@ const addTask = () => {
 										identyTask={task.id} 
 										removeTask={props.removeTask}
 										index={index}
+										editTaskName={props.editTaskName}
 									/>
 							))}
 							{provided.placeholder}

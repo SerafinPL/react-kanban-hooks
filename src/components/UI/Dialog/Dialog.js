@@ -26,7 +26,7 @@ const Dialog = (props) => {
 					onChange={(event) => setInputName(event.target.value)}
 					placeholder='nowa nazwa listy'
 					//onKeyDown={taskHandlerKeyPress}
-					/>
+				/>
 				<div>	
 					<Button classes={props.clLeft} click={editName}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
