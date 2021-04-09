@@ -141,6 +141,8 @@ console.log('Kanban Rendering');
 					if (!value.tasks) {
 						value.tasks = [];
 					}
+				return false;
+
 				});
 				console.log(data);
 
