@@ -1,0 +1,15 @@
+.dialog{
+	width: 400px;
+	border: 1px solid #aaa;
+	background-color: #FFF;
+	text-align: center;
+	position: fixed;
+	left: calc(50vw - 200px);
+	top: 40vh;
+	z-index: 20;
+
+}
+
+.dialog p {
+
+}
