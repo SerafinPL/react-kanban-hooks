@@ -27,8 +27,10 @@ const Dialog = (props) => {
 					placeholder='nowa nazwa listy'
 					//onKeyDown={taskHandlerKeyPress}
 					/>
-				<Button classes={props.clLeft} click={editName}>{props.left}</Button>
-				<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
+				<div>	
+					<Button classes={props.clLeft} click={editName}>{props.left}</Button>
+					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
+				</div>
 			</div>
 		</div>
 		);

@@ -2,12 +2,20 @@
 
 .modal{
 	width: 400px;
+	height: 400px;
 	border: 1px solid #aaa;
 	background-color: #FFF;
 	text-align: center;
 	position: fixed;
 	left: calc(50vw - 200px);
-	top: 40vh;
+	top: calc(50vh - 200px);
 	z-index: 20;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.modal h1 {
+	margin-bottom: 20px;
 }
 
