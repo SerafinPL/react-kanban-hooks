@@ -7,7 +7,7 @@
 	text-align: left;
 	box-shadow: 3px 3px 3px #aaa;
 	padding: 4px;
-	border-radius: 5px;
+	border-radius: 0px;
 
 	
 }
@@ -22,9 +22,10 @@
 
 .Checkbox{
 	margin-top: 3px;
-	margin-left: -10px;
-	margin-right: 3px;
+	margin-left: 1px;
+	margin-right: 10px;
 	float: left;
+	border-radius: 0px;
 
 }
 
@@ -37,6 +38,7 @@
 
 .header {
 	height: 15px;
+	margin-bottom: 5px;
 }
 
 .header span.right {

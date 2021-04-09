@@ -3,9 +3,23 @@
 	font-size: 16px;
 	font-weight: bold;
 	margin: 10px 5%;
-	cursor: pointer;
+	
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+	border-radius: 0px;
+	background-color: 	#cfcf17;
+	border-width: 0px;
+	cursor: pointer;
+
+}
+
+.buttonCol:hover:enabled {
+	background-color: 	#a5a50d;
+
+}
+
+.buttonCol :enabled{
+	color: #000;
 
 }
 
