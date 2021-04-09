@@ -4,6 +4,9 @@
 	font-weight: bold;
 	margin: 10px 5%;
 	cursor: pointer;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	
 }
 
 .buttonGreen{
@@ -15,6 +18,8 @@
 	padding: 2%;
 	cursor: pointer;
 	margin: 2px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
 	
 }
 
@@ -34,7 +39,9 @@
 	padding: 2%;
 	cursor: pointer;
 	margin: 2px;
-	
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+
 }
 
 .buttonRed:hover{
