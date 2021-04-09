@@ -26,7 +26,9 @@ const addTask = () => {
 		<>
 			<header className={classes.header}>
 				<span className={classes.left} {...props.dragHandleProps}>&#9776;</span>
+
 				<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
+				<span className={classes.right} >...</span>
 				<p className={classes.label}>{props.name}</p>
 				
 			</header>		

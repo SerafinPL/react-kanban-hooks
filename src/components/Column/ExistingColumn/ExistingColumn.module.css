@@ -12,6 +12,7 @@
 .header span.right {
 	cursor: pointer;
 	float: right;
+	margin-right: 5px;
 }
 
 .header span.left {
