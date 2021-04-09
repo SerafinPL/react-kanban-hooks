@@ -89,6 +89,13 @@ const Kanban = () => {
 		setLists([...columns]);
 	};
 
+	const editColumnName = (id, newName) => {
+		const positionOfColumn = lists.findIndex((value) => (id === value.id));
+		const columns = [...lists];
+		columns[positionOfColumn].name = newName;
+		setLists([...columns]);
+	}
+
 	const {saveData, fatchData, sending, errorSend, responseSend, fatching, errorFatch, responseFatch} = useData();
 
 	useEffect(() => {

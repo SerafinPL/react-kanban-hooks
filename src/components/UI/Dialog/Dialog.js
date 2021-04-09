@@ -10,9 +10,10 @@ const Dialog = (props) => {
 	const [inputName, setInputName] = useState(props.name);
 
 	return(
-			<BackDrop>
+			<BackDrop click={props.cancel}>
 				<div className={classes.dialog}>
 					<h1>{props.alert}?</h1>
+					
 					<Button classes={props.clLeft} click={props.ok}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
 				</div>

@@ -30,7 +30,7 @@ const addTask = () => {
 				<span className={classes.left} {...props.dragHandleProps}>&#9776;</span>
 
 				<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
-				<span className={classes.right} >...</span>
+				<span className={classes.right} onClick={() => setDialog(true)}>...</span>
 				<p className={classes.label}>{props.name}</p>
 				
 			</header>		
@@ -94,7 +94,7 @@ const addTask = () => {
 			{dialog && <Dialog 
 						alert={`Edycja Listy ${props.name}?`} 
 						ok={() => props.removeColumn(props.identy)}
-						cancel={() => setModal(false)}
+						cancel={() => setDialog(false)}
 						left='Zmień'
 						clLeft='buttonRed'
 						right='Anuluj'
