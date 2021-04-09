@@ -77,7 +77,11 @@ const Kanban = () => {
 	const addTask = (id, name) => {
 		const positionOfColumn = lists.findIndex((value) => (id === value.id));
 		const columns = [...lists];
-		columns[positionOfColumn].tasks.push({name: name, id:(name + new Date().getTime()), order: columns[positionOfColumn].tasks.length});
+		const newTask = [...columns[positionOfColumn].tasks];
+
+		newTask.push({name: name, id:(name + new Date().getTime()), order: columns[positionOfColumn].tasks.length});
+		
+		columns[positionOfColumn].tasks = [...newTask];	
 		setLists([...columns]);
 	};
 
@@ -85,7 +89,11 @@ const Kanban = () => {
 		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
 		const columns = [...lists];
 		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));
-		columns[positionOfColumn].tasks.splice(positionOfTask, 1);
+		const newTask = [...columns[positionOfColumn].tasks];
+
+		newTask.splice(positionOfTask, 1);
+
+		columns[positionOfColumn].tasks = [...newTask];
 		setLists([...columns]);
 	};
 
@@ -100,11 +108,11 @@ const Kanban = () => {
 		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
 		const columns = [...lists];
 		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));
-		const newTask = [...columns[positionOfColumn].tasks]
+		const newTask = [...columns[positionOfColumn].tasks];
+
 		newTask[positionOfTask].name = newName;
 
 		columns[positionOfColumn].tasks = [...newTask];
-
 		setLists([...columns]);
 	}
 
