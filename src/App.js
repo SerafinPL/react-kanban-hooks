@@ -56,10 +56,8 @@ function App() {
     <div className="App">
 
       <Toolbar/>
-
-       <Kanban/>
-      
-      
+      <Kanban/>
+          
     </div>
   </FullContext.Provider>
   
