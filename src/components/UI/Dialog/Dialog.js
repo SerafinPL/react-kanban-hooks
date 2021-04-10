@@ -16,7 +16,12 @@ const Dialog = (props) => {
 		props.cancel();
 	}
 
-
+	const onEnter = (event) => {
+	
+		if (event.keyCode === 13) {
+			editTask();
+		}
+	}
 
 	return(
 		<div>	
@@ -28,7 +33,7 @@ const Dialog = (props) => {
 					value={inputName} 
 					onChange={(event) => setInputName(event.target.value)}
 					placeholder='nowa nazwa listy'
-					//onKeyDown={taskHandlerKeyPress}
+					onKeyDown={(event) => onEnter(event)}
 				/>
 				<p>Opis zadania</p>
 				<textarea
@@ -36,6 +41,7 @@ const Dialog = (props) => {
 					value={inputDescription}
 					onChange={(event) => setInputDescription(event.target.value)}
 					placeholder='opis zadania'
+					onKeyDown={(event) => onEnter(event)}
 				/>
 				<div>	
 					<Button classes={props.clLeft} click={editTask}>{props.left}</Button>

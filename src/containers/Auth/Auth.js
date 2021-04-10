@@ -56,6 +56,12 @@ const Auth = (props) => {
 		}
 	}
 
+	const onEnter = (event) => {
+	
+		if (event.keyCode === 13) {
+			singFunc();
+		}
+	}	
 
 
 	return  (
@@ -79,6 +85,7 @@ const Auth = (props) => {
 						value={passwd}
 						onChange={event => setPasswd(event.target.value)}
 						type='password'
+						onKeyDown={(event) => onEnter(event)}
 						
 					/>
 					{props.registration &&
@@ -89,6 +96,7 @@ const Auth = (props) => {
 								value={passwd2}				
 								onChange={event => setPasswd2(event.target.value)}
 								type='password'
+								onKeyDown={(event) => onEnter(event)}
 							/>
 							{passwd !== passwd2 &&
 								<p style={{color: 'red'}}>Hasła nie są identyczne</p>
