@@ -21,7 +21,7 @@ const Auth = (props) => {
 
 	const singOn = useCallback((userId, token, expirationDate, email) => {
 		context.loginOn(userId, token, expirationDate, email);
-	}, []);
+	}, [context]);
 
 	
 
@@ -31,7 +31,7 @@ const Auth = (props) => {
 		} else {
 			setValid(passwd.length > 5 && login !== '');
 		}
-	});
+	},[props.registration, passwd, passwd2, login]);
 
 	useEffect(() => {
 		if (userId) {

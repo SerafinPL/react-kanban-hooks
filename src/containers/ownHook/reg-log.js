@@ -42,6 +42,7 @@ const reducer = (curState, action) => {
 					email: null,
 					loading: false
 				}
+		default: return;
 	}// switch
 }
 

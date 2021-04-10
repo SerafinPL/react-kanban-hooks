@@ -29,7 +29,7 @@ const Toolbar = () => {
 				context.loginOff();
 			},context.expirationDate.getTime() -  new Date().getTime());
 		}
-	} ,[context.expirationDate]);
+	} ,[context.expirationDate, context]);
 
 
 	return(
