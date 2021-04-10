@@ -16,6 +16,13 @@ const NewColumn = (props) => {
 		setInputCol('');
 	};
 
+	const onEnter = (event) => {
+	
+		if (event.keyCode === 13) {
+			addCol();
+		}
+	}	
+
 
 	return(
 		<React.Fragment>
@@ -24,7 +31,7 @@ const NewColumn = (props) => {
 				value={inputCol} 
 				onChange={(event) => setInputCol(event.target.value)}
 				placeholder='nazwa kolumny'
-				//onKeyDown={colHandlerKeyPress}
+				onKeyDown={event => onEnter(event)}
 				
 				/>
 			
