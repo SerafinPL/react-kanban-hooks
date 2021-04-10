@@ -49,7 +49,7 @@ const Task = (props) => {
 									clRight='buttonGreen'
 								/>}
 						{dialog && <Dialog 
-							alert={`Edycja Zadania: ${props.name}?`} 
+							alert={`Edycja Zadania: ${props.name}.`} 
 							ok={props.editTaskName}
 							cancel={() => setDialog(false)}
 							left='Zmień'

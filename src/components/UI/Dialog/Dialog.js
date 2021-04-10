@@ -9,6 +9,7 @@ import Input from '../Input/Input';
 const Dialog = (props) => {
 
 	const [inputName, setInputName] = useState(props.name);
+	const [inputDescription, setInputDescription] = useState(props.name);
 
 	const editName = () => {
 		props.ok(props.identy, inputName, props.identyTask);
@@ -26,6 +27,13 @@ const Dialog = (props) => {
 					onChange={(event) => setInputName(event.target.value)}
 					placeholder='nowa nazwa listy'
 					//onKeyDown={taskHandlerKeyPress}
+				/>
+				<p>Opis zadania</p>
+				<textarea
+					className={classes.TextArea}
+					value={inputDescription}
+					onChange={(event) => setInputDescription(event.target.value)}
+					placeholder='opis zadania'
 				/>
 				<div>	
 					<Button classes={props.clLeft} click={editName}>{props.left}</Button>

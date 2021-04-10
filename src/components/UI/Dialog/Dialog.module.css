@@ -15,5 +15,12 @@
 }
 
 .dialog p {
+	text-align: center;
+}
 
+.TextArea {
+	text-align: center;
+	border: 1px solid #000;
+	width: 90%;
+	margin: 0 auto;
 }
