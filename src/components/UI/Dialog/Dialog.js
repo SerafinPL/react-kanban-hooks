@@ -9,12 +9,14 @@ import Input from '../Input/Input';
 const Dialog = (props) => {
 
 	const [inputName, setInputName] = useState(props.name);
-	const [inputDescription, setInputDescription] = useState(props.name);
+	const [inputDescription, setInputDescription] = useState(props.description);
 
-	const editName = () => {
-		props.ok(props.identy, inputName, props.identyTask);
+	const editTask = () => {
+		props.ok(props.identy, inputName, props.identyTask, inputDescription);
 		props.cancel();
 	}
+
+	
 
 	return(
 		<div>	
@@ -36,7 +38,7 @@ const Dialog = (props) => {
 					placeholder='opis zadania'
 				/>
 				<div>	
-					<Button classes={props.clLeft} click={editName}>{props.left}</Button>
+					<Button classes={props.clLeft} click={editTask}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
 				</div>
 			</div>

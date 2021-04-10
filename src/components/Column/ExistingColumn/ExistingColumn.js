@@ -50,18 +50,20 @@ const addTask = () => {
 
                				}}
 						>
-							{props.tasks.map((task, index) => (
-									<Task 
-										name={task.name} 
-										key={task.id} 
-										identyList={props.identy} 
-										identyTask={task.id} 
-										removeTask={props.removeTask}
-										index={index}
-										editTaskName={props.editTaskName}
-									/>
+							{props.tasks.map((task, index) =>( 
+								<Task 
+									name={task.name} 
+									key={task.id} 
+									identyList={props.identy} 
+									identyTask={task.id}
+									description={task.description} 
+									removeTask={props.removeTask}
+									index={index}
+									editTask={props.editTask}
+								/>
 							))}
 							{provided.placeholder}
+
 						</div>
 					);
 				}

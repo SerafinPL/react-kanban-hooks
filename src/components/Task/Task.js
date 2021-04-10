@@ -11,7 +11,7 @@ const Task = (props) => {
 	const [checkbox, setCheckbox] = useState(false);
 	const [modal, setModal] = useState(false);
 	const [dialog, setDialog] = useState(false);
-
+	
 	return(
 		<Draggable key={props.identyTask} draggableId={props.identyTask} index={props.index}>
 			{(provided, snapshot) => {
@@ -50,7 +50,7 @@ const Task = (props) => {
 								/>}
 						{dialog && <Dialog 
 							alert={`Edycja Zadania: ${props.name}.`} 
-							ok={props.editTaskName}
+							ok={props.editTask}
 							cancel={() => setDialog(false)}
 							left='Zmień'
 							clLeft='buttonRed'
@@ -59,6 +59,7 @@ const Task = (props) => {
 							identy={props.identyList}
 							identyTask={props.identyTask}
 							name={props.name}
+							description={props.description}
 						/>
 						}
 						

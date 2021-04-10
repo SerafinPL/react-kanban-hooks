@@ -63,7 +63,7 @@ console.log('Kanban Rendering');
 
 	const addColumn = (name) => {
 		const columns = [...lists];
-		columns.push({name: name, id: (name + new Date().getTime()), order: columns.length, tasks:[] });
+		columns.push({name: name, id: (name + new Date().getTime()), tasks:[] });
 		setLists([...columns]);
 	};
 
@@ -79,7 +79,7 @@ console.log('Kanban Rendering');
 		const columns = [...lists];
 		const newTask = [...columns[positionOfColumn].tasks];
 
-		newTask.push({name: name, id:(name + new Date().getTime()), order: columns[positionOfColumn].tasks.length});
+		newTask.push({name: name, id:(name + new Date().getTime()), descripton: ''});
 		
 		columns[positionOfColumn].tasks = [...newTask];	
 		setLists([...columns]);
@@ -104,13 +104,14 @@ console.log('Kanban Rendering');
 		setLists([...columns]);
 	}
 
-	const editTaskName = (idList, newName, idTask) => {
+	const editTask = (idList, newName, idTask, description) => {
 		const positionOfColumn = lists.findIndex((value) => (idList === value.id));
 		const columns = [...lists];
 		const positionOfTask = columns[positionOfColumn].tasks.findIndex((value) => (idTask === value.id));
 		const newTask = [...columns[positionOfColumn].tasks];
 
 		newTask[positionOfTask].name = newName;
+		newTask[positionOfTask].description = description;
 
 		columns[positionOfColumn].tasks = [...newTask];
 		setLists([...columns]);
@@ -198,7 +199,7 @@ console.log('Kanban Rendering');
 																removeTask={removeTask}
 																removeColumn={removeColumn}
 																editColumnName={editColumnName}
-																editTaskName={editTaskName}
+																editTask={editTask}
 
 															/>
 															

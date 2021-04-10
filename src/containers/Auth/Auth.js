@@ -107,7 +107,6 @@ const Auth = (props) => {
 	
 		);
 
-	return 
 };
 
 export default React.memo(Auth);
