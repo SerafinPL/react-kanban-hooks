@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback, useRef } from 'react';
+import React, { useContext, useState, useEffect, useCallback} from 'react';
 import classes from './Auth.module.css'
 
 import Input from '../../components/UI/Input/Input';
@@ -40,10 +40,6 @@ const Auth = (props) => {
 		console.log(userId);
 	}, [userId, token, time, email, singOn]);
 
-	console.log('rendering');
-
-	
-	
 	const singFunc = () => {
 
 		const data = {

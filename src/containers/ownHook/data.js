@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {useState} from 'react';
+import {useState, useCallback} from 'react';
 
 
 
@@ -16,7 +16,7 @@ const useData = () => {
 
 
 
-	const saveData = (userId, data, token) => {
+	const saveData = useCallback((userId, data, token) => {
 		setSending(true);
 		setResSend(null); 
 		setErrSend(null);
@@ -31,9 +31,9 @@ const useData = () => {
 			setErrSend(err);
 			setSending(false);
 		})
-	}
+	},[]);
 
-	const fatchData = (userId, token) => {
+	const fatchData = useCallback((userId, token) => {
 		setFatching(true);
 		setResFatch(null); 
 		setErrFatch(null);
@@ -48,7 +48,7 @@ const useData = () => {
 			setErrFatch(err);
 			setFatching(false);
 		})
-	}
+	},[]);
 
 	return{
 		saveData: saveData,

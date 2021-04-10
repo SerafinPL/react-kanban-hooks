@@ -122,14 +122,14 @@ console.log('Kanban Rendering');
 		if (context.isAuth) {
 			saveData(context.userId, lists, context.token);
 		}
-	}, [lists]);
+	}, [lists, context.userId, context.token, saveData, context.isAuth]);
 
 	useEffect(() =>{
 		if (context.isAuth) {
 			fatchData(context.userId, context.token)
 		}
 
-	}, [context.isAuth]);
+	}, [context.isAuth, context.userId, context.token, fatchData]);
 
 	useEffect(() => {
 		

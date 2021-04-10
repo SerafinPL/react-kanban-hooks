@@ -19,7 +19,7 @@ const Dialog = (props) => {
 		<div>	
 			<BackDrop click={props.cancel}/>
 			<div className={classes.dialog}>
-				<h1>{props.alert}?</h1>
+				<h1>{props.alert}</h1>
 				<Input
 					type='text' 
 					value={inputName} 
