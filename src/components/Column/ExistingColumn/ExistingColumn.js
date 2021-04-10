@@ -24,6 +24,12 @@ const addTask = () => {
 		setInputTask('');
 	};
 
+const onEnter = (event) => {
+	
+	if (event.keyCode === 13) {
+		addTask();
+	}
+}
 
 
 
@@ -78,7 +84,7 @@ const addTask = () => {
 						value={inputTask} 
 						onChange={(event) => setInputTask(event.target.value)}
 						placeholder='nazwa zadania'
-						//onKeyDown={taskHandlerKeyPress}
+						onKeyDown={(event) => onEnter(event)}
 						/>
 					
 					<Button click={addTask} classes={'buttonCol'} disabled={inputTask === '' ? true: false}>Dodaj Zadanie</Button>

@@ -9,6 +9,7 @@ const Input = (props) => (
 				value={props.value}
 				onChange={props.onChange}
 				placeholder={props.placeholder}
+				onKeyDown={props.onKeyDown}
 				
 			/>
 			
