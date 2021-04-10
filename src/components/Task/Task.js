@@ -32,7 +32,6 @@ const Task = (props) => {
 
                         }}
 					>
-
 						<header className={classes.header}>
 							<span className={classes.left} {...provided.dragHandleProps}>&#9776;</span>
 							<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
@@ -60,7 +59,7 @@ const Task = (props) => {
 							clLeft='buttonRed'
 							right='Anuluj'
 							clRight='buttonGreen'
-							identy={props.identyList}
+							identyList={props.identyList}
 							identyTask={props.identyTask}
 							name={props.name}
 							description={props.description}

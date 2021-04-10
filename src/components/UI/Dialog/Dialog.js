@@ -12,11 +12,11 @@ const Dialog = (props) => {
 	const [inputDescription, setInputDescription] = useState(props.description);
 
 	const editTask = () => {
-		props.ok(props.identy, inputName, props.identyTask, inputDescription);
+		props.ok(props.identyList, inputName, props.identyTask, inputDescription);
 		props.cancel();
 	}
 
-	
+
 
 	return(
 		<div>	
