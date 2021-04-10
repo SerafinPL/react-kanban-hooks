@@ -24,8 +24,7 @@ const Toolbar = () => {
 
 	useEffect(() => {
 		if (context.expirationDate){
-			console.log(context.expirationDate.getTime() - new Date().getTime());
-
+			
 			setTimeout(() => {
 				context.loginOff();
 			},context.expirationDate.getTime() -  new Date().getTime());

@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import classes from './Task.module.css'
 
 import Modal from '../UI/Modal/Modal';
 import Dialog from '../UI/Dialog/Dialog';
 import {Draggable} from 'react-beautiful-dnd';
+
+import FuncContext from '../../containers/context/funcContext';
 
 const Task = (props) => {
 
@@ -11,7 +13,9 @@ const Task = (props) => {
 	const [checkbox, setCheckbox] = useState(false);
 	const [modal, setModal] = useState(false);
 	const [dialog, setDialog] = useState(false);
-	
+
+	const funcContext = useContext(FuncContext);
+
 	return(
 		<Draggable key={props.identyTask} draggableId={props.identyTask} index={props.index}>
 			{(provided, snapshot) => {
@@ -41,7 +45,7 @@ const Task = (props) => {
 						</p>
 						{modal && <Modal 
 									alert={`Usunąć Zadanie: ${props.name}?`} 
-									ok={() => props.removeTask(props.identyList, props.identyTask)}
+									ok={() => funcContext.removeTask(props.identyList, props.identyTask)}
 									cancel={() => setModal(false)}
 									left='Usuń'
 									clLeft='buttonRed'
@@ -50,7 +54,7 @@ const Task = (props) => {
 								/>}
 						{dialog && <Dialog 
 							alert={`Edycja Zadania: ${props.name}.`} 
-							ok={props.editTask}
+							ok={funcContext.editTask}
 							cancel={() => setDialog(false)}
 							left='Zmień'
 							clLeft='buttonRed'

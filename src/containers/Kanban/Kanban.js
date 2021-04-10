@@ -5,7 +5,11 @@ import NewColumn from '../../components/Column/NewColumn/NewColumn';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 import FullContext from '../context/context';
+import FuncContext from '../context/funcContext';
 import useData from '../ownHook/data';
+
+
+
 
 const onDragEnd = (result, lists, setLists) => {
 	const {source, destination, type} = result;
@@ -155,7 +159,14 @@ console.log('Kanban Rendering');
 
 
 	return(
-		
+	 <FuncContext.Provider value={{
+	 	removeColumn: removeColumn,
+	 	addTask: addTask,
+	 	removeTask: removeTask,
+	 	editColumnName: editColumnName,
+	 	editTask: editTask
+	 }}
+	 	>
 		<div className={classes.mainBox} >
 		{context.isAuth &&
 			<React.Fragment>
@@ -195,12 +206,7 @@ console.log('Kanban Rendering');
 																identy={list.id} 
 																name={list.name} 
 																tasks={list.tasks} 
-																addTask={addTask} 
-																removeTask={removeTask}
-																removeColumn={removeColumn}
-																editColumnName={editColumnName}
-																editTask={editTask}
-
+																
 															/>
 															
 														</div>
@@ -235,7 +241,7 @@ console.log('Kanban Rendering');
 			</React.Fragment>		
 		}	
 		</div>
-		
+	</FuncContext.Provider>
 	);
 };
 

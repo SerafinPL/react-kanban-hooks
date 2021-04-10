@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import classes from './ExistingColumn.module.css';
 
 import { Droppable} from 'react-beautiful-dnd';
@@ -9,15 +9,18 @@ import Task from '../../Task/Task';
 import Modal from '../../UI/Modal/Modal';
 import Dialog from '../../UI/Dialog/Dialog';
 
+import FuncContext from '../../../containers/context/funcContext';
+
 const ExistingColumn = (props) => {
 
 const [inputTask, setInputTask] = useState('');
 const [modal, setModal] = useState(false);
 const [dialog, setDialog] = useState(false);
 
+const funcContext = useContext(FuncContext);
 
 const addTask = () => {
-		props.addTask(props.identy, inputTask);
+		funcContext.addTask(props.identy, inputTask);
 		setInputTask('');
 	};
 
@@ -57,9 +60,9 @@ const addTask = () => {
 									identyList={props.identy} 
 									identyTask={task.id}
 									description={task.description} 
-									removeTask={props.removeTask}
+									//removeTask={props.removeTask}
 									index={index}
-									editTask={props.editTask}
+									//editTask={props.editTask}
 								/>
 							))}
 							{provided.placeholder}
@@ -85,7 +88,7 @@ const addTask = () => {
 
 			{modal && <Modal 
 						alert={`Usunąć Liste ${props.name}?`} 
-						ok={() => props.removeColumn(props.identy)}
+						ok={() => funcContext.removeColumn(props.identy)}
 						cancel={() => setModal(false)}
 						left='Usuń'
 						clLeft='buttonRed'
@@ -96,7 +99,7 @@ const addTask = () => {
 
 			{dialog && <Dialog 
 						alert={`Edycja Listy ${props.name}?`} 
-						ok={props.editColumnName}
+						ok={funcContext.editColumnName}
 						cancel={() => setDialog(false)}
 						left='Zmień'
 						clLeft='buttonRed'
