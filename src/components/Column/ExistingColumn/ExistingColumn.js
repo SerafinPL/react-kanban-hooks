@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useMemo} from 'react';
 import classes from './ExistingColumn.module.css';
 
 import { Droppable} from 'react-beautiful-dnd';
@@ -46,8 +46,10 @@ const onEnter = (event) => {
 			
 
 			<Droppable droppableId={props.identy} key={props.identy} type='task'>
-			{
+			{useMemo(() => (
+
 				(provided, snapshot) => {
+					
 					return(
 						<div
 							className={classes.drop} 
@@ -60,22 +62,24 @@ const onEnter = (event) => {
                				}}
 						>
 							{props.tasks.map((task, index) =>( 
-								<Task 
-									name={task.name} 
-									key={task.id} 
-									identyList={props.identy} 
-									identyTask={task.id}
-									description={task.description} 
-									index={index}
-									
-								/>
-							))}
+									<Task 
+										name={task.name} 
+										key={task.id} 
+										identyList={props.identy} 
+										identyTask={task.id}
+										description={task.description} 
+										index={index}
+										
+									/>
+								))
+							}
 							{provided.placeholder}
 
 						</div>
 					);
 				}
-			}
+				// eslint-disable-next-line
+			),[])}
 			</Droppable>
 			<div className={classes.flexGrow}>
 				<div className={classes.adding}>

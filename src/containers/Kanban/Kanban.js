@@ -194,7 +194,7 @@ const Kanban = () => {
 											lists.map( (list, index) => (
 											<Draggable key={list.id} draggableId={list.id} index={index} >
 												{(provided, snapshot) => {
-													console.log('render Tablic');
+													
                 									return(
 														<div className={classes.column}
 															{...provided.draggableProps} 

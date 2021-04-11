@@ -19,6 +19,7 @@ const Task = (props) => {
 	return(
 		<Draggable key={props.identyTask} draggableId={props.identyTask} index={props.index}>
 			{(provided, snapshot) => {
+				
                 return(
 					<div 
 						className={classes.task}
