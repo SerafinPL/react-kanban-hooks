@@ -37,11 +37,14 @@ const Task = (props) => {
 							<span onClick={() => setModal(true)} className={classes.right}>&#9746;</span>
 							<span className={classes.right} onClick={() => setDialog(true)}>...</span>
 						</header>
-						<input className={classes.Checkbox}type='checkbox' checked={checkbox} onChange={(event) => {setCheckbox(event.target.checked)}}/>
-						<p className={checkbox ? classes.line : null}>
-							
-							{props.name}
-						</p>
+						<label className={classes.container}>
+							<input className={classes.Checkbox} type='checkbox' checked={checkbox} onChange={(event) => {setCheckbox(event.target.checked)}}/>
+							<span className={classes.checkmark}></span>
+							<p className={checkbox ? classes.line : null}>
+								
+								{props.name}
+							</p>
+						</label>
 						{modal && <Modal 
 									alert={`Usunąć Zadanie: ${props.name}?`} 
 									ok={() => funcContext.removeTask(props.identyList, props.identyTask)}
