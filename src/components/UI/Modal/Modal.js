@@ -11,7 +11,7 @@ const Modal = (props) => {
 				
 				<BackDrop click={props.cancel}/>
 				<div className={classes.modal} >
-					<h1>{props.alert}?</h1>
+					<h1>{props.alert}</h1>
 					<div>
 						<Button classes={props.clLeft} click={props.ok}>{props.left}</Button>
 						<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>

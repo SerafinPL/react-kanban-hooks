@@ -14,8 +14,8 @@ import useData from '../ownHook/data';
 const onDragEnd = (result, lists, setLists) => {
 	const {source, destination, type} = result;
 	
-
 	if (destination){
+
 		if (type === 'task'){
 			if( source.droppableId === destination.droppableId){ // ta sama kolumna
 				const indexOfColumn = lists.findIndex((value) => (value.id === source.droppableId));
@@ -60,7 +60,7 @@ const onDragEnd = (result, lists, setLists) => {
 }
 
 const Kanban = () => {
-console.log('Kanban Rendering');
+//console.log('Kanban Rendering');
 	const context = useContext(FullContext);
 
 	const [lists, setLists] = useState([]);
@@ -159,16 +159,16 @@ console.log('Kanban Rendering');
 
 
 	return(
-	 <FuncContext.Provider value={{
+	<FuncContext.Provider value={{
 	 	removeColumn: removeColumn,
 	 	addTask: addTask,
 	 	removeTask: removeTask,
 	 	editColumnName: editColumnName,
 	 	editTask: editTask
 	 }}
-	 	>
+	 >
 		<div className={classes.mainBox} >
-		{useMemo(() => (
+		{/*useMemo(() => (*/
 		context.isAuth &&
 			<React.Fragment>
 			
@@ -233,19 +233,19 @@ console.log('Kanban Rendering');
 					</Droppable>
 					
 				</DragDropContext>
-				
-			</React.Fragment>		
-		), [lists, addColumn, context.isAuth])}
-	
-			<div className={classes.infoBox}>
-				{sending && 'Zapisuje zmiany...'}
-				{responseSend && 'Zapisano zmiany'}
-				{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
-				{fatching && 'Pobieram Dane...'}
-				{responseFatch && 'Dane Pobrane'}
-				{errorFatch && 'Danych nie udało się pobrać'}
+				<div className={classes.infoBox}>
+					{sending && 'Zapisuje zmiany...'}
+					{responseSend && 'Zapisano zmiany'}
+					{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
+					{fatching && 'Pobieram Dane...'}
+					{responseFatch && 'Dane Pobrane'}
+					{errorFatch && 'Danych nie udało się pobrać'}
 
-			</div>		
+				</div>	
+			</React.Fragment>		
+		/*), [lists, addColumn, context.isAuth])*/}
+	
+				
 		</div>
 	</FuncContext.Provider>
 	);

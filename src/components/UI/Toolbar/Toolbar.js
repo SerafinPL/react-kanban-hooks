@@ -13,7 +13,7 @@ const Toolbar = () => {
 	const [regis,setRegis] = useState(false);
 	const [showDialog, setShowDialog] =useState(false);
 
-	
+	console.log(context)
 	const loginOff = () => {
 		context.loginOff();
 

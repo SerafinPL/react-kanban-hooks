@@ -21,7 +21,7 @@ const Auth = (props) => {
 
 	const singOn = useCallback((userId, token, expirationDate, email) => {
 		context.loginOn(userId, token, expirationDate, email);
-	}, [context]);
+	},[context]);
 
 	
 
@@ -37,8 +37,8 @@ const Auth = (props) => {
 		if (userId) {
 			singOn(userId, token, time, email);
 		}
-		console.log(userId);
-	}, [userId, token, time, email, singOn]);
+		
+	}, [userId, token, time, email]);
 
 	const singFunc = () => {
 
