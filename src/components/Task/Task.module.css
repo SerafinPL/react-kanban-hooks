@@ -48,7 +48,7 @@
 .container .Checkbox{
 	position: absolute;
 	opacity: 0;
-	cursor: pointer;
+	cursor: default;
 	height: 0;
 	width: 0;
 }
@@ -60,6 +60,7 @@
   	height: 15px;
   	width: 15px;
   	background-color: #cfcf17;
+  	cursor: pointer;
 }
 
 .container:hover input ~ .checkmark {

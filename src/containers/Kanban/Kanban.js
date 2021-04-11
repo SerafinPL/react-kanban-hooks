@@ -69,6 +69,7 @@ const Kanban = () => {
 		const columns = [...lists];
 		columns.push({name: name, id: (name + new Date().getTime()), tasks:[] });
 		setLists([...columns]);
+		// eslint-disable-next-line
 	},[]);
 
 	const removeColumn = (id) => {
@@ -168,7 +169,7 @@ const Kanban = () => {
 	 }}
 	 >
 		<div className={classes.mainBox} >
-		{/*useMemo(() => (*/
+		{useMemo(() => (
 		context.isAuth &&
 			<React.Fragment>
 			
@@ -243,7 +244,7 @@ const Kanban = () => {
 
 				</div>	
 			</React.Fragment>		
-		/*), [lists, addColumn, context.isAuth])*/}
+		), [lists, addColumn, context.isAuth, sending, responseSend, errorSend, fatching, responseFatch ,errorFatch])}
 	
 				
 		</div>

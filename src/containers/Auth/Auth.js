@@ -21,7 +21,8 @@ const Auth = (props) => {
 
 	const singOn = useCallback((userId, token, expirationDate, email) => {
 		context.loginOn(userId, token, expirationDate, email);
-	},[context]);
+		// eslint-disable-next-line
+	},[]);
 
 	
 
@@ -37,7 +38,7 @@ const Auth = (props) => {
 		if (userId) {
 			singOn(userId, token, time, email);
 		}
-		
+		// eslint-disable-next-line
 	}, [userId, token, time, email]);
 
 	const singFunc = () => {
