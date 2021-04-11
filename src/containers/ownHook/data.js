@@ -18,6 +18,7 @@ const useData = () => {
 
 	const saveData = useCallback((userId, data, token) => {
 		setSending(true);
+		setFatching(false);
 		setResSend(null); 
 		setErrSend(null);
 		setResFatch(null); 
@@ -35,6 +36,7 @@ const useData = () => {
 
 	const fatchData = useCallback((userId, token) => {
 		setFatching(true);
+		setSending(false);
 		setResFatch(null); 
 		setErrFatch(null);
 		setResSend(null); 

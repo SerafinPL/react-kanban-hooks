@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect, useMemo, useCallback} from 'react';
 import classes from './Kanban.module.css';
 import ExistingColumn from '../../components/Column/ExistingColumn/ExistingColumn';
 import NewColumn from '../../components/Column/NewColumn/NewColumn';
@@ -43,7 +43,7 @@ const onDragEnd = (result, lists, setLists) => {
 				setLists([...columns]);
 			}
 		} else { // type === 'column'
-			console.log(result);
+			
 			const columns = [...lists];
 			const [movedColumn] = columns.splice(source.index, 1);
 			columns.splice(destination.index, 0, movedColumn);
@@ -65,11 +65,11 @@ console.log('Kanban Rendering');
 
 	const [lists, setLists] = useState([]);
 
-	const addColumn = (name) => {
+	const addColumn = useCallback((name) => {
 		const columns = [...lists];
 		columns.push({name: name, id: (name + new Date().getTime()), tasks:[] });
 		setLists([...columns]);
-	};
+	},[]);
 
 	const removeColumn = (id) => {
 		const columns = [...lists];
@@ -149,7 +149,7 @@ console.log('Kanban Rendering');
 				return false;
 
 				});
-				console.log(data);
+				
 
 				setLists(data);	
 			}
@@ -168,12 +168,13 @@ console.log('Kanban Rendering');
 	 }}
 	 	>
 		<div className={classes.mainBox} >
-		{context.isAuth &&
+		{useMemo(() => (
+		context.isAuth &&
 			<React.Fragment>
 			
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
 					<Droppable droppableId='main' type='column' direction='horizontal'>
-						{
+						{ 
 							(provided, snapshot) => {
 								return(
 									<div className={classes.kanban} 
@@ -185,9 +186,11 @@ console.log('Kanban Rendering');
 
 			               				}}>
 
-										{ lists.map( (list, index) => (
+										{  
+											lists.map( (list, index) => (
 											<Draggable key={list.id} draggableId={list.id} index={index} >
 												{(provided, snapshot) => {
+													console.log('render Tablic');
                 									return(
 														<div className={classes.column}
 															{...provided.draggableProps} 
@@ -213,7 +216,8 @@ console.log('Kanban Rendering');
 													)
 												}}
 											</Draggable>
-										  )  ) }
+										  )  ) 
+										 }
 										
 										
 										{provided.placeholder}
@@ -229,17 +233,19 @@ console.log('Kanban Rendering');
 					</Droppable>
 					
 				</DragDropContext>
-				<div className={classes.infoBox}>
-					{sending && 'Zapisuje zmiany...'}
-					{responseSend && 'Zapisano zmiany'}
-					{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
-					{fatching && 'Pobieram Dane...'}
-					{responseFatch && 'Dane Pobrane'}
-					{errorFatch && 'Danych nie udało się pobrać'}
-
-				</div>	
+				
 			</React.Fragment>		
-		}	
+		), [lists, addColumn, context.isAuth])}
+	
+			<div className={classes.infoBox}>
+				{sending && 'Zapisuje zmiany...'}
+				{responseSend && 'Zapisano zmiany'}
+				{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
+				{fatching && 'Pobieram Dane...'}
+				{responseFatch && 'Dane Pobrane'}
+				{errorFatch && 'Danych nie udało się pobrać'}
+
+			</div>		
 		</div>
 	</FuncContext.Provider>
 	);
