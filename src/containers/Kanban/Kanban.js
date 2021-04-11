@@ -128,7 +128,8 @@ const Kanban = () => {
 		if (context.isAuth) {
 			saveData(context.userId, lists, context.token);
 		}
-	}, [lists, context.userId, context.token, saveData, context.isAuth]);
+		// eslint-disable-next-line
+	}, [lists]);
 
 	useEffect(() =>{
 		if (context.isAuth) {
@@ -157,6 +158,8 @@ const Kanban = () => {
 		}
 		
 	},[responseFatch]);
+
+
 
 
 	return(
@@ -234,19 +237,20 @@ const Kanban = () => {
 					</Droppable>
 					
 				</DragDropContext>
-				<div className={classes.infoBox}>
-					{sending && 'Zapisuje zmiany...'}
-					{responseSend && 'Zapisano zmiany'}
-					{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
-					{fatching && 'Pobieram Dane...'}
-					{responseFatch && 'Dane Pobrane'}
-					{errorFatch && 'Danych nie udało się pobrać'}
-
-				</div>	
+					
 			</React.Fragment>		
-		), [lists, addColumn, context.isAuth, sending, responseSend, errorSend, fatching, responseFatch ,errorFatch])}
-	
-				
+		), [lists, addColumn, context.isAuth])}
+			{context.isAuth &&
+			<div className={classes.infoBox}>
+						{sending && 'Zapisuje zmiany...'}
+						{responseSend && 'Zapisano zmiany'}
+						{errorSend && <span style={{color: 'red'}}>'Zmian nie udało się zapisać!'</span>}
+						{fatching && 'Pobieram Dane...'}
+						{responseFatch && 'Dane Pobrane'}
+						{errorFatch && 'Danych nie udało się pobrać'}
+
+			</div>
+			}		
 		</div>
 	</FuncContext.Provider>
 	);
