@@ -29,7 +29,7 @@ const onEnter = (event) => {
 	if (event.keyCode === 13) {
 		addTask();
 	}
-}
+};
 
 
 
