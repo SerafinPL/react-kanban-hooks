@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect, useMemo, useCallback} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import classes from './Kanban.module.css';
 import ExistingColumn from '../../components/Column/ExistingColumn/ExistingColumn';
 import NewColumn from '../../components/Column/NewColumn/NewColumn';
@@ -65,12 +65,12 @@ const Kanban = () => {
 
 	const [lists, setLists] = useState([]);
 
-	const addColumn = /*useCallback(*/(name) => {
+	const addColumn = (name) => {
 		const columns = [...lists];
 		columns.push({name: name, id: (name + new Date().getTime()), tasks:[] });
 		setLists([...columns]);
-		// eslint-disable-next-line
-	}//,[]);
+		
+	}
 
 	const removeColumn = (id) => {
 		const columns = [...lists];
