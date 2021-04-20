@@ -46,9 +46,7 @@ const onEnter = (event) => {
 			
 
 			<Droppable droppableId={props.identy} key={props.identy} type='task'>
-			{useMemo(() => (
-
-				(provided, snapshot) => {
+			{	(provided, snapshot) => {
 					
 					return(
 						<div
@@ -78,8 +76,8 @@ const onEnter = (event) => {
 						</div>
 					);
 				}
-				// eslint-disable-next-line
-			),[])}
+							
+			}
 			</Droppable>
 			<div className={classes.flexGrow}>
 				<div className={classes.adding}>

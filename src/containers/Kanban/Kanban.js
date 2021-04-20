@@ -65,12 +65,12 @@ const Kanban = () => {
 
 	const [lists, setLists] = useState([]);
 
-	const addColumn = useCallback((name) => {
+	const addColumn = /*useCallback(*/(name) => {
 		const columns = [...lists];
 		columns.push({name: name, id: (name + new Date().getTime()), tasks:[] });
 		setLists([...columns]);
 		// eslint-disable-next-line
-	},[]);
+	}//,[]);
 
 	const removeColumn = (id) => {
 		const columns = [...lists];
@@ -172,8 +172,7 @@ const Kanban = () => {
 	 }}
 	 >
 		<div className={classes.mainBox} >
-		{useMemo(() => (
-		context.isAuth &&
+		{context.isAuth &&
 			<React.Fragment>
 			
 				<DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
@@ -239,8 +238,8 @@ const Kanban = () => {
 				</DragDropContext>
 					
 			</React.Fragment>		
-		), [lists, addColumn, context.isAuth])}
-			{context.isAuth &&
+		}
+		{context.isAuth &&
 			<div className={classes.infoBox}>
 						{sending && 'Zapisuje zmiany...'}
 						{responseSend && 'Zapisano zmiany'}
@@ -250,7 +249,7 @@ const Kanban = () => {
 						{errorFatch && 'Danych nie udało się pobrać'}
 
 			</div>
-			}		
+		}		
 		</div>
 	</FuncContext.Provider>
 	);
