@@ -33,10 +33,10 @@
 
 }
 
-@media screen and (min-width: 300px){
+@media screen and (min-width: 500px){
 	.kanban{
 		width: auto;
-		position: static;
+		left: 15px;
 	}
 	.right{
 		margin-top: 0px;
@@ -44,9 +44,10 @@
 }
 
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 700px){
 	.kanban{
 		width: 100vw;
 		position: absolute;
+		text-align: center;
 	}
 }

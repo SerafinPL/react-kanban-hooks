@@ -15,7 +15,7 @@
 	background-color: #F0D892;
 }
 
-@media screen and (min-width: 300px){
+@media screen and (min-width: 500px){
 	.naviItem{
 		margin-top: 0px;
 	}
