@@ -112,7 +112,7 @@ const onEnter = (event) => {
 						clLeft='buttonRed'
 						right='Anuluj'
 						clRight='buttonGreen'
-						identy={props.identy}
+						identyList={props.identy}
 						name={props.name}
 					/>
 			}
