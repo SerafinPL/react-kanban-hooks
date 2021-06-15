@@ -67,6 +67,7 @@ const Task = (props) => {
 							identyTask={props.identyTask}
 							name={props.name}
 							description={props.description}
+							task
 						/>
 						}
 						

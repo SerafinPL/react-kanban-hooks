@@ -32,7 +32,7 @@ const Toolbar = () => {
 	return(
 	
 			<div className={classes.toolbar}>
-				<span className={classes.kanban}>JAPAN KANBAN</span>
+				<span className={classes.kanban}>KANBAN</span>
 				{context.isAuth ? 
 				<React.Fragment>
 					<NaviItem text='Wyloguj' click={loginOff}></NaviItem>

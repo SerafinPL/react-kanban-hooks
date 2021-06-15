@@ -35,14 +35,16 @@ const Dialog = (props) => {
 					placeholder='nowa nazwa listy'
 					onKeyDown={(event) => onEnter(event)}
 				/>
-				<p>Opis zadania</p>
-				<textarea
-					className={classes.TextArea}
-					value={inputDescription}
-					onChange={(event) => setInputDescription(event.target.value)}
-					placeholder='opis zadania'
-					onKeyDown={(event) => onEnter(event)}
-				/>
+				{props.task && <React.Fragment> 
+					<p>Opis zadania</p>
+					<textarea
+						className={classes.TextArea}
+						value={inputDescription}
+						onChange={(event) => setInputDescription(event.target.value)}
+						placeholder='opis zadania'
+						onKeyDown={(event) => onEnter(event)}
+					/>
+				</React.Fragment>}
 				<div>	
 					<Button classes={props.clLeft} click={editTask}>{props.left}</Button>
 					<Button classes={props.clRight} click={props.cancel}>{props.right}</Button>
