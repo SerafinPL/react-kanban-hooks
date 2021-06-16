@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const FuncContext = React.createContext({
-	
-});
+const FuncContext = React.createContext({});
 
 export default FuncContext;

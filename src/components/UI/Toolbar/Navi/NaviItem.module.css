@@ -1,22 +1,21 @@
-.naviItem{
-	font-size: 1em;
-	margin-left: 10px;
-	float: right;
-	cursor: pointer;
-	padding: 5px;
-	margin-top: 40px;
-	position: relative;
-	z-index: 8;
-	font-weight: 400;
+.naviItem {
+  font-size: 1em;
+  margin-left: 10px;
+  float: right;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 8;
+  font-weight: 400;
 }
 
-.naviItem:hover{
-	
-	background-color: #F0D892;
+.naviItem:hover {
+  background-color: #f0d892;
 }
 
-@media screen and (min-width: 500px){
-	.naviItem{
-		margin-top: 0px;
-	}
+@media screen and (min-width: 500px) {
+  .naviItem {
+    margin-top: 0px;
+  }
 }

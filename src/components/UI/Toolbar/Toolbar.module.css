@@ -1,53 +1,49 @@
 .toolbar {
-	width: 100%;
-	color: #000;
-	background-color: #F9F3E6;
-	padding-top: 10px;
-	padding-right: 5px;
-	height: 50px;
-	/*border: 1px solid #000;*/
-	
+  width: 100%;
+  color: #000;
+  background-color: #f9f3e6;
+  padding-top: 10px;
+  padding-right: 5px;
+  height: 50px;
+  /*border: 1px solid #000;*/
 }
 
 .right {
-	float: right;
-	font-size: 1em;
-	padding: 5px;
-	position: relative;
-	z-index: 8; 
-	font-weight: 400;
-	margin-top: 40px;
+  float: right;
+  font-size: 1em;
+  padding: 5px;
+  position: relative;
+  z-index: 8;
+  font-weight: 400;
+  margin-top: 40px;
 }
 
-.kanban{
-	font-family: 'Anton', sans-serif;
-	font-size: 2em;
-	text-align: center;
-	height: 50px;
-	width: 100vw;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	z-index: 5;
-	
-
+.kanban {
+  font-family: "Anton", sans-serif;
+  font-size: 2em;
+  text-align: center;
+  height: 50px;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
 }
 
-@media screen and (min-width: 500px){
-	.kanban{
-		width: auto;
-		left: 15px;
-	}
-	.right{
-		margin-top: 0px;
-	}
+@media screen and (min-width: 500px) {
+  .kanban {
+    width: auto;
+    left: 15px;
+  }
+  .right {
+    margin-top: 0px;
+  }
 }
 
-
-@media screen and (min-width: 700px){
-	.kanban{
-		width: 100vw;
-		position: absolute;
-		text-align: center;
-	}
+@media screen and (min-width: 700px) {
+  .kanban {
+    width: 100vw;
+    position: absolute;
+    text-align: center;
+  }
 }

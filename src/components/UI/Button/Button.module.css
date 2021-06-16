@@ -1,66 +1,59 @@
 .buttonCol {
-	width: 90%;
-	font-size: 16px;
-	font-weight: bold;
-	margin: 10px 5%;
-	
-	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-	border-radius: 0px;
-	background-color: 	#cfcf17;
-	border-width: 0px;
-	cursor: pointer;
+  width: 90%;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 5%;
 
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  border-radius: 0px;
+  background-color: #cfcf17;
+  border-width: 0px;
+  cursor: pointer;
 }
 
 .buttonCol:hover:enabled {
-	background-color: 	#a5a50d;
-
+  background-color: #a5a50d;
 }
 
-.buttonCol :enabled{
-	color: #000;
-
+.buttonCol :enabled {
+  color: #000;
 }
 
-.buttonGreen{
-	background-color: 	#cfcf17;
-	/*border-style: inset;
+.buttonGreen {
+  background-color: #cfcf17;
+  /*border-style: inset;
 	border-color: #00ff55;*/
-	border: 0px;
-	font-size: 20px;
-	font-weight: bold;
-	padding: 2%;
-	cursor: pointer;
-	margin: 10px;
-	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-	
+  border: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2%;
+  cursor: pointer;
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
-.buttonGreen:hover{
-	background-color: 	#76760a;
-	
-	
+.buttonGreen:hover {
+  background-color: #76760a;
 }
 
-.buttonRed{
-	background-color: #ff704d;
-	/*border-style: inset;
+.buttonRed {
+  background-color: #ff704d;
+  /*border-style: inset;
 	border-color: #ff0000;*/
-	border: 0px;
-	font-size: 20px;
-	font-weight: bold;
-	padding: 2%;
-	cursor: pointer;
-	margin: 10px;
-	font-family: 'Lato', sans-serif;
-	font-weight: 400;
-
+  border: 0px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 2%;
+  cursor: pointer;
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
-.buttonRed:hover{
-	background-color: #cc1a1a;
-	border-style: inset;
-	border-color: #cc0000;
+.buttonRed:hover {
+  background-color: #cc1a1a;
+  border-style: inset;
+  border-color: #cc0000;
 }

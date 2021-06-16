@@ -1,44 +1,43 @@
 .label {
-	margin: 5px 0;
-	/*border-bottom: 1px solid #000;*/
+  margin: 5px 0;
+  /*border-bottom: 1px solid #000;*/
 }
 
 .header {
-	padding: 5px 5px;
-	font-size: 1em;
-	/*border-bottom: 1px solid #000;*/
-	font-weight: 700;
+  padding: 5px 5px;
+  font-size: 1em;
+  /*border-bottom: 1px solid #000;*/
+  font-weight: 700;
 }
 
 .header span.right {
-	cursor: pointer;
-	float: right;
-	margin-right: 5px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5px;
 }
 
 .header span.left {
-	line-height: 20px;
-	float: left;
-	margin-left: 2px;
-	cursor: grab;
+  line-height: 20px;
+  float: left;
+  margin-left: 2px;
+  cursor: grab;
 }
 
-.flexGrow{
-	flex-grow: 1;
-	display: flex;
-	margin-top: 10px;
-}	
+.flexGrow {
+  flex-grow: 1;
+  display: flex;
+  margin-top: 10px;
+}
 
 .adding {
-	border: 1px solid #000;
-	border-top: 2px solid #000;
-	align-self: flex-end;
-	width: 100%;
-	
+  border: 1px solid #000;
+  border-top: 2px solid #000;
+  align-self: flex-end;
+  width: 100%;
 }
 
-.drop{
-	display: flex;
-	flex-direction: column;
-	height: 100%;
+.drop {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

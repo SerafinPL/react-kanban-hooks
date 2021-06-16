@@ -1,92 +1,91 @@
 .task {
-	width: calc(100%-4px);
-	color: #000;
-	background-color: #FFF;
-	border: 1px solid #000;
-	margin: 2px 2px;
-	text-align: left;
-	/*box-shadow: 3px 3px 3px #aaa;*/
-	padding: 4px;
-	border-radius: 0px;
+  width: calc(100%-4px);
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  margin: 2px 2px;
+  text-align: left;
+  /*box-shadow: 3px 3px 3px #aaa;*/
+  padding: 4px;
+  border-radius: 0px;
 }
 
 .task p {
-	margin: 2px;
-	text-align: left;
-	font-size: 0.8em;
-	line-height: 17px;
-	margin-left: 20px;
+  margin: 2px;
+  text-align: left;
+  font-size: 0.8em;
+  line-height: 17px;
+  margin-left: 20px;
 }
 
-.line{
-	text-decoration: line-through;	
+.line {
+  text-decoration: line-through;
 }
 
 .header {
-	height: 15px;
-	margin-bottom: 5px;
+  height: 15px;
+  margin-bottom: 5px;
 }
 
 .header span.right {
-	cursor: pointer;
-	float: right;
-	padding-right: 5px; 
+  cursor: pointer;
+  float: right;
+  padding-right: 5px;
 }
 
 .header span.left {
-	cursor: grab;
-	float: left;
-	margin-left: 2px;
+  cursor: grab;
+  float: left;
+  margin-left: 2px;
 }
 
-.container{
-	position: relative;
-	user-select: none;
-	display: block;
+.container {
+  position: relative;
+  user-select: none;
+  display: block;
 }
 
-.container .Checkbox{
-	position: absolute;
-	opacity: 0;
-	cursor: default;
-	height: 0;
-	width: 0;
+.container .Checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: default;
+  height: 0;
+  width: 0;
 }
 
 .container .checkmark {
-  	position: absolute;
-  	top: 0;
-  	left: 2px;
-  	height: 15px;
-  	width: 15px;
-  	background-color: #cfcf17;
-  	cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 2px;
+  height: 15px;
+  width: 15px;
+  background-color: #cfcf17;
+  cursor: pointer;
 }
 
 .container:hover input ~ .checkmark {
-  	background-color: #a5a50d;
+  background-color: #a5a50d;
 }
 
 .container input:checked ~ .checkmark {
-  	background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 .container .checkmark:after {
-	content: "";
-	position: absolute;
-	display: none;
-	left: 4px;
-	top: 0px;
-	width: 5px;
-	height: 10px;
-	border: solid white;
-	border-width: 0 3px 3px 0;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .container input:checked ~ .checkmark:after {
-    display: block;
+  display: block;
 }
-
