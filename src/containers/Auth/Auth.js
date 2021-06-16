@@ -4,12 +4,12 @@ import classes from "./Auth.module.css";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
 
-import AuthContext from "../context/context";
+import {FullContext} from "../context/context";
 
 import useRegLogHook from "../ownHook/reg-log";
 
 const Auth = (props) => {
-  const context = useContext(AuthContext);
+  const context = useContext(FullContext);
 
   const [login, setLogin] = useState("");
   const [passwd, setPasswd] = useState("");
@@ -77,7 +77,7 @@ const Auth = (props) => {
                 Podano Błędne dane spróbuj jeszcze raz.
               </p>
             )}
-            <p>Login:</p>
+            <p>Mail:</p>
             <Input
               value={login}
               onChange={(event) => setLogin(event.target.value)}

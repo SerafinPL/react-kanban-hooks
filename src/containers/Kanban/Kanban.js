@@ -4,7 +4,7 @@ import ExistingColumn from "../../components/Column/ExistingColumn/ExistingColum
 import NewColumn from "../../components/Column/NewColumn/NewColumn";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-import FullContext from "../context/context";
+import {FullContext} from "../context/context";
 import FuncContext from "../context/funcContext";
 import useData from "../ownHook/data";
 

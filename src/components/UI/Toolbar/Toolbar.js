@@ -4,10 +4,10 @@ import classes from "./Toolbar.module.css";
 import NaviItem from "./Navi/NaviItem";
 import Auth from "../../../containers/Auth/Auth";
 
-import AuthContext from "../../../containers/context/context";
+import {FullContext} from "../../../containers/context/context";
 
 const Toolbar = () => {
-  const context = useContext(AuthContext);
+  const context = useContext(FullContext);
 
   const [regis, setRegis] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
