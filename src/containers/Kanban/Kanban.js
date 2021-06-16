@@ -4,7 +4,7 @@ import ExistingColumn from "../../components/Column/ExistingColumn/ExistingColum
 import NewColumn from "../../components/Column/NewColumn/NewColumn";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-import {FullContext} from "../context/context";
+import { FullContext } from "../context/context";
 import FuncContext from "../context/funcContext";
 import useData from "../ownHook/data";
 
@@ -67,6 +67,7 @@ const Kanban = () => {
   const context = useContext(FullContext);
 
   const [lists, setLists] = useState([]);
+  const [fetched, setFetched] = useState(false);
 
   const addColumn = (name) => {
     const columns = [...lists];
@@ -145,7 +146,11 @@ const Kanban = () => {
 
   useEffect(() => {
     if (context.isAuth) {
-      saveData(context.userId, lists, context.token);
+      if (!fetched) {
+        saveData(context.userId, lists, context.token);
+        
+      }
+      setFetched(false);
     }
     // eslint-disable-next-line
   }, [lists]);
@@ -153,13 +158,13 @@ const Kanban = () => {
   useEffect(() => {
     if (context.isAuth) {
       fatchData(context.userId, context.token);
+      setFetched(true);
     }
   }, [context.isAuth, context.userId, context.token, fatchData]);
 
   useEffect(() => {
     if (responseFatch) {
       if (responseFatch.data) {
-        console.log(responseFatch.data);
         const data = [...responseFatch.data];
         data.map((value) => {
           if (!value.tasks) {

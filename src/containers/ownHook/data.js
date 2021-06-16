@@ -74,14 +74,6 @@ const reducer = (curState, action) => {
 };
 
 const useData = () => {
-  //   const [sending, setSending] = useState(false);
-  //   const [fatching, setFatching] = useState(false);
-  //   const [resSend, setResSend] = useState(null);
-  //   const [errSend, setErrSend] = useState(null);
-
-  //   const [resFatch, setResFatch] = useState(null);
-  //   const [errFatch, setErrFatch] = useState(null);
-
   const [dataReducer, dispatchData] = useReducer(reducer, initState);
 
   const saveData = useCallback((userId, data, token) => {
@@ -96,16 +88,12 @@ const useData = () => {
           type: "SAVE_DONE",
           data: response,
         });
-        // setResSend(response);
-        // setSending(false);
       })
       .catch((err) => {
         dispatchData({
           type: "ERROR_SAVE",
           err: err,
         });
-        // setErrSend(err);
-        // setSending(false);
       });
   }, []);
 
@@ -120,16 +108,12 @@ const useData = () => {
           type: "FETCH_DONE",
           data: response,
         });
-        // setResFatch(response);
-        // setFatching(false);
       })
       .catch((err) => {
         dispatchData({
           type: "ERROR_FETCH",
           err: err,
         });
-        // setErrFatch(err);
-        // setFatching(false);
       });
   }, []);
 
