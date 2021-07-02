@@ -9,7 +9,7 @@ import Task from "../../Task/Task";
 import Modal from "../../UI/Modal/Modal";
 import Dialog from "../../UI/Dialog/Dialog";
 
-import FuncContext from "../../../containers/context/funcContext";
+import { FuncContext } from "../../../containers/context/funcContext";
 
 const ExistingColumn = (props) => {
   const [inputTask, setInputTask] = useState("");

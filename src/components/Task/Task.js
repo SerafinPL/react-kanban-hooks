@@ -5,7 +5,7 @@ import Modal from "../UI/Modal/Modal";
 import Dialog from "../UI/Dialog/Dialog";
 import { Draggable } from "react-beautiful-dnd";
 
-import FuncContext from "../../containers/context/funcContext";
+import { FuncContext } from "../../containers/context/funcContext";
 
 const Task = (props) => {
   const [checkbox, setCheckbox] = useState(false);

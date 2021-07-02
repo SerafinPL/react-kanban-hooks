@@ -4,7 +4,7 @@ import classes from "./Toolbar.module.css";
 import NaviItem from "./Navi/NaviItem";
 import Auth from "../../../containers/Auth/Auth";
 
-import {FullContext} from "../../../containers/context/context";
+import { FullContext } from "../../../containers/context/context";
 
 const Toolbar = () => {
   const context = useContext(FullContext);

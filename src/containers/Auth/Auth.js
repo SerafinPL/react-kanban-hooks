@@ -4,7 +4,7 @@ import classes from "./Auth.module.css";
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
 
-import {FullContext} from "../context/context";
+import { FullContext } from "../context/context";
 
 import useRegLogHook from "../ownHook/reg-log";
 

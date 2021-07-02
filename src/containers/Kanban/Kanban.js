@@ -154,7 +154,7 @@ const Kanban = () => {
       setFetched(false);
     }
     // eslint-disable-next-line
-  }, [lists]);
+  }, [funcContext.lists]);
 
   useEffect(() => {
     if (context.isAuth) {
