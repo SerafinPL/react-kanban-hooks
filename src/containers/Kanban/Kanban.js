@@ -5,7 +5,8 @@ import NewColumn from "../../components/Column/NewColumn/NewColumn";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { FullContext } from "../context/context";
-import FuncContext from "../context/funcContext";
+import { FuncContext } from "../context/funcContext";
+
 import useData from "../ownHook/data";
 
 const onDragEnd = (result, lists, setLists) => {
@@ -65,73 +66,74 @@ const onDragEnd = (result, lists, setLists) => {
 
 const Kanban = () => {
   const context = useContext(FullContext);
+  const funcContext = useContext(FuncContext);
 
-  const [lists, setLists] = useState([]);
+  // const [lists, setLists] = useState([]);
   const [fetched, setFetched] = useState(false);
 
-  const addColumn = (name) => {
-    const columns = [...lists];
-    columns.push({ name: name, id: name + new Date().getTime(), tasks: [] });
-    setLists([...columns]);
-  };
+  // const addColumn = (name) => {
+  //   const columns = [...lists];
+  //   columns.push({ name: name, id: name + new Date().getTime(), tasks: [] });
+  //   setLists([...columns]);
+  // };
 
-  const removeColumn = (id) => {
-    const columns = [...lists];
-    const positionOfColumn = lists.findIndex((value) => id === value.id);
-    columns.splice(positionOfColumn, 1);
-    setLists([...columns]);
-  };
+  // const removeColumn = (id) => {
+  //   const columns = [...lists];
+  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
+  //   columns.splice(positionOfColumn, 1);
+  //   setLists([...columns]);
+  // };
 
-  const addTask = (id, name) => {
-    const positionOfColumn = lists.findIndex((value) => id === value.id);
-    const columns = [...lists];
-    const newTask = [...columns[positionOfColumn].tasks];
+  // const addTask = (id, name) => {
+  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
+  //   const columns = [...lists];
+  //   const newTask = [...columns[positionOfColumn].tasks];
 
-    newTask.push({
-      name: name,
-      id: name + new Date().getTime(),
-      descripton: "",
-    });
+  //   newTask.push({
+  //     name: name,
+  //     id: name + new Date().getTime(),
+  //     descripton: "",
+  //   });
 
-    columns[positionOfColumn].tasks = [...newTask];
-    setLists([...columns]);
-  };
+  //   columns[positionOfColumn].tasks = [...newTask];
+  //   setLists([...columns]);
+  // };
 
-  const removeTask = (idList, idTask) => {
-    const positionOfColumn = lists.findIndex((value) => idList === value.id);
-    const columns = [...lists];
-    const positionOfTask = columns[positionOfColumn].tasks.findIndex(
-      (value) => idTask === value.id
-    );
-    const newTask = [...columns[positionOfColumn].tasks];
+  // const removeTask = (idList, idTask) => {
+  //   const positionOfColumn = lists.findIndex((value) => idList === value.id);
+  //   const columns = [...lists];
+  //   const positionOfTask = columns[positionOfColumn].tasks.findIndex(
+  //     (value) => idTask === value.id
+  //   );
+  //   const newTask = [...columns[positionOfColumn].tasks];
 
-    newTask.splice(positionOfTask, 1);
+  //   newTask.splice(positionOfTask, 1);
 
-    columns[positionOfColumn].tasks = [...newTask];
-    setLists([...columns]);
-  };
+  //   columns[positionOfColumn].tasks = [...newTask];
+  //   setLists([...columns]);
+  // };
 
-  const editColumnName = (id, newName) => {
-    const positionOfColumn = lists.findIndex((value) => id === value.id);
-    const columns = [...lists];
-    columns[positionOfColumn].name = newName;
-    setLists([...columns]);
-  };
+  // const editColumnName = (id, newName) => {
+  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
+  //   const columns = [...lists];
+  //   columns[positionOfColumn].name = newName;
+  //   setLists([...columns]);
+  // };
 
-  const editTask = (idList, newName, idTask, description) => {
-    const positionOfColumn = lists.findIndex((value) => idList === value.id);
-    const columns = [...lists];
-    const positionOfTask = columns[positionOfColumn].tasks.findIndex(
-      (value) => idTask === value.id
-    );
-    const newTask = [...columns[positionOfColumn].tasks];
+  // const editTask = (idList, newName, idTask, description) => {
+  //   const positionOfColumn = lists.findIndex((value) => idList === value.id);
+  //   const columns = [...lists];
+  //   const positionOfTask = columns[positionOfColumn].tasks.findIndex(
+  //     (value) => idTask === value.id
+  //   );
+  //   const newTask = [...columns[positionOfColumn].tasks];
 
-    newTask[positionOfTask].name = newName;
-    newTask[positionOfTask].description = description;
+  //   newTask[positionOfTask].name = newName;
+  //   newTask[positionOfTask].description = description;
 
-    columns[positionOfColumn].tasks = [...newTask];
-    setLists([...columns]);
-  };
+  //   columns[positionOfColumn].tasks = [...newTask];
+  //   setLists([...columns]);
+  // };
 
   const {
     saveData,
@@ -147,8 +149,7 @@ const Kanban = () => {
   useEffect(() => {
     if (context.isAuth) {
       if (!fetched) {
-        saveData(context.userId, lists, context.token);
-        
+        saveData(context.userId, funcContext.lists, context.token);
       }
       setFetched(false);
     }
@@ -173,107 +174,101 @@ const Kanban = () => {
           return false;
         });
 
-        setLists(data);
+        funcContext.setLists(data);
       }
     }
   }, [responseFatch]);
 
   return (
-    <FuncContext.Provider
-      value={{
-        removeColumn: removeColumn,
-        addTask: addTask,
-        removeTask: removeTask,
-        editColumnName: editColumnName,
-        editTask: editTask,
-      }}
-    >
-      <div className={classes.mainBox}>
-        {context.isAuth && (
-          <React.Fragment>
-            <DragDropContext
-              onDragEnd={(result) => onDragEnd(result, lists, setLists)}
-            >
-              <Droppable
-                droppableId="main"
-                type="column"
-                direction="horizontal"
-              >
-                {(provided, snapshot) => {
-                  return (
-                    <div
-                      className={classes.kanban}
-                      {...provided.droppableProps}
-                      ref={provided.innerRef}
-                      style={
-                        {
-                          //backgroundColor: snapshot.isDraggingOver ? '#F9F3E6;' : '#F9F3E6;',
-                          //paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
-                        }
+    // <FuncContext.Provider
+    //   value={{
+    //     removeColumn: removeColumn,
+    //     addTask: addTask,
+    //     removeTask: removeTask,
+    //     editColumnName: editColumnName,
+    //     editTask: editTask,
+    //   }}
+    // >
+    <div className={classes.mainBox}>
+      {context.isAuth && (
+        <React.Fragment>
+          <DragDropContext
+            onDragEnd={(result) => onDragEnd(result, funcContext.lists, funcContext.setLists)}
+          >
+            <Droppable droppableId="main" type="column" direction="horizontal">
+              {(provided, snapshot) => {
+                return (
+                  <div
+                    className={classes.kanban}
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    style={
+                      {
+                        //backgroundColor: snapshot.isDraggingOver ? '#F9F3E6;' : '#F9F3E6;',
+                        //paddingBottom: snapshot.isDraggingOver ? '25%' : '0px'
                       }
-                    >
-                      {lists.map((list, index) => (
-                        <Draggable
-                          key={list.id}
-                          draggableId={list.id}
-                          index={index}
-                        >
-                          {(provided, snapshot) => {
-                            return (
-                              <div
-                                className={classes.column}
-                                {...provided.draggableProps}
-                                ref={provided.innerRef}
-                                style={{
-                                  ...provided.draggableProps.style,
-                                  userSelect: "none",
-                                  backgroundColor: snapshot.isDragging
-                                    ? "#fba883"
-                                    : "#EA9772",
-                                }}
-                              >
-                                <ExistingColumn
-                                  dragHandleProps={provided.dragHandleProps}
-                                  key={list.id}
-                                  identy={list.id}
-                                  name={list.name}
-                                  tasks={list.tasks}
-                                />
-                              </div>
-                            );
-                          }}
-                        </Draggable>
-                      ))}
+                    }
+                  >
+                    {funcContext.lists.map((list, index) => (
+                      <Draggable
+                        key={list.id}
+                        draggableId={list.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => {
+                          return (
+                            <div
+                              className={classes.column}
+                              {...provided.draggableProps}
+                              ref={provided.innerRef}
+                              style={{
+                                ...provided.draggableProps.style,
+                                userSelect: "none",
+                                backgroundColor: snapshot.isDragging
+                                  ? "#fba883"
+                                  : "#EA9772",
+                              }}
+                            >
+                              <ExistingColumn
+                                dragHandleProps={provided.dragHandleProps}
+                                key={list.id}
+                                identy={list.id}
+                                name={list.name}
+                                tasks={list.tasks}
+                              />
+                            </div>
+                          );
+                        }}
+                      </Draggable>
+                    ))}
 
-                      {provided.placeholder}
-                      <div className={classes.columnAdd}>
-                        <div className={classes.itemNew}>
-                          <NewColumn add={addColumn} />
-                        </div>
+                    {provided.placeholder}
+                    <div className={classes.columnAdd}>
+                      <div className={classes.itemNew}>
+                        <NewColumn add={funcContext.addColumn} />
                       </div>
                     </div>
-                  );
-                }}
-              </Droppable>
-            </DragDropContext>
-          </React.Fragment>
-        )}
-        {context.isAuth && (
-          <div className={classes.infoBox}>
-            {sending && "Zapisuje zmiany..."}
-            {responseSend && "Zapisano zmiany"}
-            {errorSend && (
-              <span style={{ color: "red" }}>
-                'Zmian nie udało się zapisać!'
-              </span>
-            )}
-            {fatching && "Pobieram Dane..."}
-            {responseFatch && "Dane Pobrane"}
-            {errorFatch && "Danych nie udało się pobrać"}
-          </div>
-        )}
-      </div>
-    </FuncContext.Provider>
+                  </div>
+                );
+              }}
+            </Droppable>
+          </DragDropContext>
+        </React.Fragment>
+      )}
+      {context.isAuth && (
+        <div className={classes.infoBox}>
+          {sending && "Zapisuje zmiany..."}
+          {responseSend && "Zapisano zmiany"}
+          {errorSend && (
+            <span style={{ color: "red" }}>'Zmian nie udało się zapisać!'</span>
+          )}
+          {fatching && "Pobieram Dane..."}
+          {responseFatch && "Dane Pobrane"}
+          {errorFatch && "Danych nie udało się pobrać"}
+        </div>
+      )}
+    </div>
+    //</FuncContext.Provider>
   );
 };
 
