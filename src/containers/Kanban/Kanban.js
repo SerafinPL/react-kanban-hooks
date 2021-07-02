@@ -68,72 +68,7 @@ const Kanban = () => {
   const context = useContext(FullContext);
   const funcContext = useContext(FuncContext);
 
-  // const [lists, setLists] = useState([]);
   const [fetched, setFetched] = useState(false);
-
-  // const addColumn = (name) => {
-  //   const columns = [...lists];
-  //   columns.push({ name: name, id: name + new Date().getTime(), tasks: [] });
-  //   setLists([...columns]);
-  // };
-
-  // const removeColumn = (id) => {
-  //   const columns = [...lists];
-  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
-  //   columns.splice(positionOfColumn, 1);
-  //   setLists([...columns]);
-  // };
-
-  // const addTask = (id, name) => {
-  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
-  //   const columns = [...lists];
-  //   const newTask = [...columns[positionOfColumn].tasks];
-
-  //   newTask.push({
-  //     name: name,
-  //     id: name + new Date().getTime(),
-  //     descripton: "",
-  //   });
-
-  //   columns[positionOfColumn].tasks = [...newTask];
-  //   setLists([...columns]);
-  // };
-
-  // const removeTask = (idList, idTask) => {
-  //   const positionOfColumn = lists.findIndex((value) => idList === value.id);
-  //   const columns = [...lists];
-  //   const positionOfTask = columns[positionOfColumn].tasks.findIndex(
-  //     (value) => idTask === value.id
-  //   );
-  //   const newTask = [...columns[positionOfColumn].tasks];
-
-  //   newTask.splice(positionOfTask, 1);
-
-  //   columns[positionOfColumn].tasks = [...newTask];
-  //   setLists([...columns]);
-  // };
-
-  // const editColumnName = (id, newName) => {
-  //   const positionOfColumn = lists.findIndex((value) => id === value.id);
-  //   const columns = [...lists];
-  //   columns[positionOfColumn].name = newName;
-  //   setLists([...columns]);
-  // };
-
-  // const editTask = (idList, newName, idTask, description) => {
-  //   const positionOfColumn = lists.findIndex((value) => idList === value.id);
-  //   const columns = [...lists];
-  //   const positionOfTask = columns[positionOfColumn].tasks.findIndex(
-  //     (value) => idTask === value.id
-  //   );
-  //   const newTask = [...columns[positionOfColumn].tasks];
-
-  //   newTask[positionOfTask].name = newName;
-  //   newTask[positionOfTask].description = description;
-
-  //   columns[positionOfColumn].tasks = [...newTask];
-  //   setLists([...columns]);
-  // };
 
   const {
     saveData,
@@ -180,20 +115,13 @@ const Kanban = () => {
   }, [responseFatch]);
 
   return (
-    // <FuncContext.Provider
-    //   value={{
-    //     removeColumn: removeColumn,
-    //     addTask: addTask,
-    //     removeTask: removeTask,
-    //     editColumnName: editColumnName,
-    //     editTask: editTask,
-    //   }}
-    // >
     <div className={classes.mainBox}>
       {context.isAuth && (
         <React.Fragment>
           <DragDropContext
-            onDragEnd={(result) => onDragEnd(result, funcContext.lists, funcContext.setLists)}
+            onDragEnd={(result) =>
+              onDragEnd(result, funcContext.lists, funcContext.setLists)
+            }
           >
             <Droppable droppableId="main" type="column" direction="horizontal">
               {(provided, snapshot) => {
@@ -268,7 +196,6 @@ const Kanban = () => {
         </div>
       )}
     </div>
-    //</FuncContext.Provider>
   );
 };
 
