@@ -34,6 +34,13 @@ const Toolbar = () => {
         </React.Fragment>
       ) : (
         <React.Fragment>
+        <NaviItem
+            text="Zaloguj z Google"
+            click={() => {
+              setRegis(false);
+              setShowDialog(true);
+            }}
+          ></NaviItem>
           <NaviItem
             text="Zaloguj"
             click={() => {

@@ -9,6 +9,9 @@ import { FuncContext } from "../context/funcContext";
 
 import useData from "../ownHook/data";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+
 const onDragEnd = (result, lists, setLists) => {
   const { source, destination, type } = result;
 
@@ -65,6 +68,52 @@ const onDragEnd = (result, lists, setLists) => {
 };
 
 const Kanban = () => {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA",
+    authDomain: "kanban-hooks.firebaseapp.com",
+    databaseURL: "https://kanban-hooks-default-rtdb.firebaseio.com",
+    projectId: "kanban-hooks",
+    storageBucket: "kanban-hooks.appspot.com",
+    messagingSenderId: "51899761000",
+    appId: "1:51899761000:web:aa995441094c388608d6dd",
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  //const provider = new firebase.auth.GoogleAuthProvider();
+
+  const loginHandler = () => {
+    // firebase
+    //   .auth()
+    //   .signInWithPopup(provider)
+    //   .then((result) => {
+    //     const credential = result.credential;
+
+    //     // This gives you a Google Access Token. You can use it to access the Google API.
+    //     const token = credential.accessToken;
+    //     // The signed-in user info.
+    //     const userFirebaseID = result.user.uid;
+    //     // ...
+
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     // Handle Errors here.
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     // The email of the user's account used.
+    //     const email = error.email;
+    //     // The firebase.auth.AuthCredential type that was used.
+    //     const credential = error.credential;
+    //     // ...
+    //     console.log(error);
+    //   });
+
+    console.log();
+  };
+
   const context = useContext(FullContext);
   const funcContext = useContext(FuncContext);
 
