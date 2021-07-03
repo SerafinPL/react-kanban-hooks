@@ -6,6 +6,9 @@ import Auth from "../../../containers/Auth/Auth";
 
 import { FullContext } from "../../../containers/context/context";
 
+import firebase from "firebase/app";
+import "firebase/auth";
+
 const Toolbar = () => {
   // Firebase Google Login Section
   const firebaseConfig = {

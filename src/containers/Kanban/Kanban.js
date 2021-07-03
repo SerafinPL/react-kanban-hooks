@@ -9,8 +9,7 @@ import { FuncContext } from "../context/funcContext";
 
 import useData from "../ownHook/data";
 
-import firebase from "firebase/app";
-import "firebase/auth";
+
 
 const onDragEnd = (result, lists, setLists) => {
   const { source, destination, type } = result;
