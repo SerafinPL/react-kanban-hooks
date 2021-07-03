@@ -56,7 +56,6 @@ const Toolbar = () => {
     console.log();
   };
 
-
   const context = useContext(FullContext);
 
   const [regis, setRegis] = useState(false);
@@ -84,9 +83,13 @@ const Toolbar = () => {
         </React.Fragment>
       ) : (
         <React.Fragment>
-        <NaviItem
+          <NaviItem
             text="Zaloguj z Google"
-            click={loginGoogleHandler}
+            click={() => {
+              setRegis(false);
+              setShowDialog(false);
+              loginGoogleHandler();
+            }}
           ></NaviItem>
           <NaviItem
             text="Zaloguj"
