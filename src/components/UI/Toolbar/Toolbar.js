@@ -29,12 +29,14 @@ const Toolbar = () => {
 
   const provider = new firebase.auth.GoogleAuthProvider();
 
+  
+
     firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
        
-        const token = result.credential.idToken;
+        const token = result.credential.accessToken;
         
         const userId = result.user.uid;
         const email = result.user.email;

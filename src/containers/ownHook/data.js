@@ -83,9 +83,9 @@ const useData = () => {
     if (prov === 'mail'){
       typeAccess = 'auth'; 
     } else {
-      typeAccess = 'auth'; 
+      typeAccess = 'access_token'; 
     }
-    console.log(typeAccess)
+    console.log(typeAccess);
     axios
       .put(
         `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
@@ -112,8 +112,9 @@ const useData = () => {
     if (prov === 'mail'){
       typeAccess = 'auth'; 
     } else {
-      typeAccess = 'auth'; 
+      typeAccess = 'access_token'; 
     }
+    console.log(typeAccess, token);
 
 
 
