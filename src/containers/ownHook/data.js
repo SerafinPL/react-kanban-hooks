@@ -76,11 +76,19 @@ const reducer = (curState, action) => {
 const useData = () => {
   const [dataReducer, dispatchData] = useReducer(reducer, initState);
 
-  const saveData = useCallback((userId, data, token) => {
+  const saveData = useCallback((userId, data, token, prov) => {
     dispatchData({ type: "SAVE" });
+
+    let typeAccess = '';
+    if (prov === 'mail'){
+      typeAccess = 'auth'; 
+    } else {
+      typeAccess = 'auth'; 
+    }
+    console.log(typeAccess)
     axios
       .put(
-        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`,
+        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
         data
       )
       .then((response) => {
@@ -97,11 +105,21 @@ const useData = () => {
       });
   }, []);
 
-  const fatchData = useCallback((userId, token) => {
+  const fatchData = useCallback((userId, token, prov) => {
     dispatchData({ type: "FETCH" });
+
+    let typeAccess = '';
+    if (prov === 'mail'){
+      typeAccess = 'auth'; 
+    } else {
+      typeAccess = 'auth'; 
+    }
+
+
+
     axios
       .get(
-        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?auth=${token}`
+        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`
       )
       .then((response) => {
         dispatchData({

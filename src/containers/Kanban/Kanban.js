@@ -87,7 +87,7 @@ const Kanban = () => {
   useEffect(() => {
     if (context.isAuth) {
       if (!fetched) {
-        saveData(context.userId, funcContext.lists, context.token);
+        saveData(context.userId, funcContext.lists, context.token, context.option);
       }
       setFetched(false);
     }
@@ -96,14 +96,15 @@ const Kanban = () => {
 
   useEffect(() => {
     if (context.isAuth) {
-      fatchData(context.userId, context.token);
-      setFetched(true);
+      fatchData(context.userId, context.token, context.option);
+      
     }
   }, [context.isAuth, context.userId, context.token, fatchData]);
 
   useEffect(() => {
     if (responseFatch) {
       if (responseFatch.data) {
+        setFetched(true);
         const data = [...responseFatch.data];
         data.map((value) => {
           if (!value.tasks) {

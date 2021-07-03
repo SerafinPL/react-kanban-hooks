@@ -9,13 +9,15 @@ export default (props) => {
   const [token, setToken] = useState(null);
   const [expirationDate, setExpirationDate] = useState(null);
   const [email, setEmail] = useState(null);
+  const [option, setOption] = useState(null);
 
-  const loginOnHandler = (userId, token, email, expirationDate) => {
+  const loginOnHandler = (userId, token, email, option, expirationDate) => {
     setIsAuth(true);
     setUserId(userId);
     setToken(token);
     setExpirationDate(expirationDate);
     setEmail(email);
+    setOption(option);
   };
 
   const loginOffHandler = () => {
@@ -36,6 +38,7 @@ export default (props) => {
         email: email,
         loginOn: loginOnHandler,
         loginOff: loginOffHandler,
+        option:option,
       }}
     >
       {props.children}

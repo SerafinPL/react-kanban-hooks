@@ -40,7 +40,7 @@ const Toolbar = () => {
         const email = result.user.email;
 
       
-        context.loginOn(userId, token, email);
+        context.loginOn(userId, token, email, 'google');
         console.log(result);
       })
       .catch((error) => {
