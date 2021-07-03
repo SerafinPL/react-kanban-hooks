@@ -73,6 +73,8 @@ const useRegLogHook = () => {
       });
   };
 
+ 
+
   const logout = () => {
     dispatchAuth({ type: "LOGOUT" });
     console.log(authState.userId);

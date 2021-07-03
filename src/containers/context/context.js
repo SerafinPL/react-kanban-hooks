@@ -10,7 +10,7 @@ export default (props) => {
   const [expirationDate, setExpirationDate] = useState(null);
   const [email, setEmail] = useState(null);
 
-  const loginOnHandler = (userId, token, expirationDate, email) => {
+  const loginOnHandler = (userId, token, email, expirationDate) => {
     setIsAuth(true);
     setUserId(userId);
     setToken(token);

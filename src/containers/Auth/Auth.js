@@ -20,7 +20,7 @@ const Auth = (props) => {
     useRegLogHook();
 
   const singOn = useCallback((userId, token, expirationDate, email) => {
-    context.loginOn(userId, token, expirationDate, email);
+    context.loginOn(userId, token, email, expirationDate);
     // eslint-disable-next-line
   }, []);
 

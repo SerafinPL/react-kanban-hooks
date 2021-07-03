@@ -21,24 +21,26 @@ const Toolbar = () => {
     appId: "1:51899761000:web:aa995441094c388608d6dd",
   };
 
-  // Initialize Firebase
+
+
+  const loginGoogleHandler = () => {
+      // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
   const provider = new firebase.auth.GoogleAuthProvider();
 
-  const loginGoogleHandler = () => {
     firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const credential = result.credential;
+       
+        const token = result.credential.idToken;
+        
+        const userId = result.user.uid;
+        const email = result.user.email;
 
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const userFirebaseID = result.user.uid;
-        // ...
-
+      
+        context.loginOn(userId, token, email);
         console.log(result);
       })
       .catch((error) => {
