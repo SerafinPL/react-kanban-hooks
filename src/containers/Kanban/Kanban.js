@@ -95,9 +95,9 @@ const Kanban = () => {
   }, [funcContext.lists]);
 
   useEffect(() => {
-    if (context.isAuth) {
+    if (context.isAuth && context.token) {
       fatchData(context.userId, context.token, context.option);
-      
+      console.log('KABAN FETCH EFFECT')
     }
   }, [context.isAuth, context.userId, context.token, fatchData]);
 

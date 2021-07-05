@@ -21,6 +21,7 @@ export default (props) => {
   };
 
   const loginOffHandler = () => {
+    
     setIsAuth(false);
     setUserId(null);
     setToken(null);

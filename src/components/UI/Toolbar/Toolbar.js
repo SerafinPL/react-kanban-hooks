@@ -11,22 +11,25 @@ import "firebase/auth";
 
 import axios from "axios";
 
+// Firebase Google Login Section
+const firebaseConfig = {
+  apiKey: "AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA",
+  authDomain: "kanban-hooks.firebaseapp.com",
+  databaseURL: "https://kanban-hooks-default-rtdb.firebaseio.com",
+  projectId: "kanban-hooks",
+  storageBucket: "kanban-hooks.appspot.com",
+  messagingSenderId: "51899761000",
+  appId: "1:51899761000:web:aa995441094c388608d6dd",
+};
+firebase.initializeApp(firebaseConfig);
+
 const Toolbar = () => {
-  // Firebase Google Login Section
-  const firebaseConfig = {
-    apiKey: "AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA",
-    authDomain: "kanban-hooks.firebaseapp.com",
-    databaseURL: "https://kanban-hooks-default-rtdb.firebaseio.com",
-    projectId: "kanban-hooks",
-    storageBucket: "kanban-hooks.appspot.com",
-    messagingSenderId: "51899761000",
-    appId: "1:51899761000:web:aa995441094c388608d6dd",
-  };
+  
 
   const loginGoogleHandler = () => {
     // Initialize Firebase
 
-    firebase.initializeApp(firebaseConfig);
+    
 
     const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -81,7 +84,17 @@ const Toolbar = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   const loginOff = () => {
-    context.loginOff();
+    if (context.option == "google" ) {
+      firebase.auth().signOut().then(() => {
+        context.loginOff();
+      }).catch((error) => {
+        console.log(error)
+      });
+    } else {
+
+      context.loginOff();
+    }
+    
   };
 
   useEffect(() => {
