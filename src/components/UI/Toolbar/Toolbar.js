@@ -9,6 +9,8 @@ import { FullContext } from "../../../containers/context/context";
 import firebase from "firebase/app";
 import "firebase/auth";
 
+import {google} from "googleapis";
+
 const Toolbar = () => {
   // Firebase Google Login Section
   const firebaseConfig = {
@@ -25,39 +27,77 @@ const Toolbar = () => {
 
   const loginGoogleHandler = () => {
       // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  
-
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then((result) => {
-       
-        const token = result.credential.accessToken;
-        
-        const userId = result.user.uid;
-        const email = result.user.email;
 
       
-        context.loginOn(userId, token, email, 'google');
-        console.log(result);
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
-        // ...
-        console.log(error);
-      });
 
-    console.log();
+      // Load the service account key JSON file.
+      var serviceAccount = require("path/to/serviceAccountKey.json");
+      
+      // Define the required scopes.
+      var scopes = [
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/firebase.database"
+      ];
+      
+      // Authenticate a JWT client with the service account.
+      var jwtClient = new google.auth.JWT(
+        serviceAccount.client_email,
+        null,
+        serviceAccount.private_key,
+        scopes
+      );
+      
+      // Use the JWT client to generate an access token.
+      jwtClient.authorize(function(error, tokens) {
+        if (error) {
+          console.log("Error making request to generate access token:", error);
+        } else if (tokens.access_token === null) {
+          console.log("Provided service account does not have permission to generate access tokens");
+        } else {
+          var accessToken = tokens.access_token;
+      
+          // See the "Using the access token" section below for information
+          // on how to use the access token to send authenticated requests to
+          // the Realtime Database REST API.
+        }
+      });
+      
+
+  // firebase.initializeApp(firebaseConfig);
+
+  // const provider = new firebase.auth.GoogleAuthProvider();
+
+
+  // provider.addScope('https://www.googleapis.com/auth/firebase.database');
+  
+
+  //   firebase
+  //     .auth()
+  //     .signInWithPopup(provider)
+  //     .then((result) => {
+       
+  //       const token = result.credential.accessToken;
+        
+  //       const userId = result.user.uid;
+  //       const email = result.user.email;
+
+      
+  //       context.loginOn(userId, token, email, 'google');
+  //       console.log(result);
+  //     })
+  //     .catch((error) => {
+  //       // Handle Errors here.
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       const email = error.email;
+  //       // The firebase.auth.AuthCredential type that was used.
+  //       const credential = error.credential;
+  //       // ...
+  //       console.log(error);
+  //     });
+
+  //   console.log();
   };
 
   const context = useContext(FullContext);

@@ -89,7 +89,10 @@ const useData = () => {
     axios
       .put(
         `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
-        data
+        data,
+        {
+          headers: {'Authorization': `Bearer ${token}`}
+        }
       )
       .then((response) => {
         dispatchData({
@@ -120,7 +123,10 @@ const useData = () => {
 
     axios
       .get(
-        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`
+        `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
+        {
+          headers: {'Authorization': `Bearer ${token}`}
+        }
       )
       .then((response) => {
         dispatchData({
