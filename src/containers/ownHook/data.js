@@ -83,16 +83,16 @@ const useData = () => {
     if (prov === 'mail'){
       typeAccess = 'auth'; 
     } else {
-      typeAccess = 'access_token'; 
+      typeAccess = 'auth'; 
     }
     console.log(typeAccess);
     axios
       .put(
         `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
         data,
-        {
-          headers: {'Authorization': `Bearer ${token}`}
-        }
+        // {
+        //   headers: {'Authorization': `Bearer ${token}`}
+        // }
       )
       .then((response) => {
         dispatchData({
@@ -115,7 +115,7 @@ const useData = () => {
     if (prov === 'mail'){
       typeAccess = 'auth'; 
     } else {
-      typeAccess = 'access_token'; 
+      typeAccess = 'auth'; 
     }
     console.log(typeAccess, token);
 
@@ -124,9 +124,9 @@ const useData = () => {
     axios
       .get(
         `https://kanban-hooks-default-rtdb.firebaseio.com/users/${userId}.json?${typeAccess}=${token}`,
-        {
-          headers: {'Authorization': `Bearer ${token}`}
-        }
+        // {
+        //   headers: {'Authorization': `Bearer ${token}`}
+        // }
       )
       .then((response) => {
         dispatchData({

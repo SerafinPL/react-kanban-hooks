@@ -9,7 +9,7 @@ import { FullContext } from "../../../containers/context/context";
 import firebase from "firebase/app";
 import "firebase/auth";
 
-import {google} from "googleapis";
+import axios from "axios";
 
 const Toolbar = () => {
   // Firebase Google Login Section
@@ -23,81 +23,56 @@ const Toolbar = () => {
     appId: "1:51899761000:web:aa995441094c388608d6dd",
   };
 
-
-
   const loginGoogleHandler = () => {
-      // Initialize Firebase
+    // Initialize Firebase
 
-      
+    firebase.initializeApp(firebaseConfig);
 
-      // Load the service account key JSON file.
-      var serviceAccount = require("path/to/serviceAccountKey.json");
-      
-      // Define the required scopes.
-      var scopes = [
-        "https://www.googleapis.com/auth/userinfo.email",
-        "https://www.googleapis.com/auth/firebase.database"
-      ];
-      
-      // Authenticate a JWT client with the service account.
-      var jwtClient = new google.auth.JWT(
-        serviceAccount.client_email,
-        null,
-        serviceAccount.private_key,
-        scopes
-      );
-      
-      // Use the JWT client to generate an access token.
-      jwtClient.authorize(function(error, tokens) {
-        if (error) {
-          console.log("Error making request to generate access token:", error);
-        } else if (tokens.access_token === null) {
-          console.log("Provided service account does not have permission to generate access tokens");
-        } else {
-          var accessToken = tokens.access_token;
-      
-          // See the "Using the access token" section below for information
-          // on how to use the access token to send authenticated requests to
-          // the Realtime Database REST API.
-        }
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    provider.addScope("https://www.googleapis.com/auth/firebase.database");
+
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        const token = result.credential.idToken;
+
+        const userId = result.user.uid;
+        const email = result.user.email;
+
+        axios
+          .post(
+            "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA",
+            {
+              postBody: `id_token=${result.credential.idToken}&providerId=google.com`,
+              requestUri: "http://localhost/react-kanban-hooks",
+              returnIdpCredential: true,
+              returnSecureToken: true,
+            }
+          )
+          .then((res) => {
+            console.log(res);
+            context.loginOn(userId, res.data.idToken, email, "google");
+          })
+          .catch((err) => console.log(err));
+
+       // context.loginOn(userId, token, email, "google");
+        console.log(result);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        const credential = error.credential;
+        // ...
+        console.log(error);
       });
-      
 
-  // firebase.initializeApp(firebaseConfig);
-
-  // const provider = new firebase.auth.GoogleAuthProvider();
-
-
-  // provider.addScope('https://www.googleapis.com/auth/firebase.database');
-  
-
-  //   firebase
-  //     .auth()
-  //     .signInWithPopup(provider)
-  //     .then((result) => {
-       
-  //       const token = result.credential.accessToken;
-        
-  //       const userId = result.user.uid;
-  //       const email = result.user.email;
-
-      
-  //       context.loginOn(userId, token, email, 'google');
-  //       console.log(result);
-  //     })
-  //     .catch((error) => {
-  //       // Handle Errors here.
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // The email of the user's account used.
-  //       const email = error.email;
-  //       // The firebase.auth.AuthCredential type that was used.
-  //       const credential = error.credential;
-  //       // ...
-  //       console.log(error);
-  //     });
-
-  //   console.log();
+    console.log();
   };
 
   const context = useContext(FullContext);
