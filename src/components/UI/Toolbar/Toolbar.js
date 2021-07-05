@@ -56,7 +56,11 @@ const Toolbar = () => {
           )
           .then((res) => {
             console.log(res);
-            context.loginOn(userId, res.data.idToken, email, "google");
+            const time = new Date(
+              new Date().getTime() + res.data.expiresIn * 1000 - 2000
+            );
+
+            context.loginOn(userId, res.data.idToken, email, "google", time);
           })
           .catch((err) => console.log(err));
 
