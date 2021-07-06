@@ -11,7 +11,7 @@ import "firebase/auth";
 
 import axios from "axios";
 
-// Firebase Google Login Section
+// Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCE9iNHzKkGA9SWX9TD4JvTXBEtyCxovdA",
   authDomain: "kanban-hooks.firebaseapp.com",
@@ -24,13 +24,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const Toolbar = () => {
-  
-
   const loginGoogleHandler = () => {
-    // Initialize Firebase
-
-    
-
+    // Firebase Google Login Section
     const provider = new firebase.auth.GoogleAuthProvider();
 
     provider.addScope("https://www.googleapis.com/auth/firebase.database");
@@ -39,7 +34,7 @@ const Toolbar = () => {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        const token = result.credential.idToken;
+        //const token = result.credential.idToken;
 
         const userId = result.user.uid;
         const email = result.user.email;
@@ -64,22 +59,20 @@ const Toolbar = () => {
           })
           .catch((err) => console.log(err));
 
-       // context.loginOn(userId, token, email, "google");
+        // context.loginOn(userId, token, email, "google");
         console.log(result);
       })
       .catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        //const errorCode = error.code;
+        //const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.email;
+        //const email = error.email;
         // The firebase.auth.AuthCredential type that was used.
-        const credential = error.credential;
+        //const credential = error.credential;
         // ...
         console.log(error);
       });
-
-    console.log();
   };
 
   const context = useContext(FullContext);
@@ -88,17 +81,19 @@ const Toolbar = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   const loginOff = () => {
-    if (context.option == "google" ) {
-      firebase.auth().signOut().then(() => {
-        context.loginOff();
-      }).catch((error) => {
-        console.log(error)
-      });
+    if (context.option == "google") {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          context.loginOff();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
-
       context.loginOff();
     }
-    
   };
 
   useEffect(() => {
