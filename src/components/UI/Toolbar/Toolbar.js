@@ -81,7 +81,7 @@ const Toolbar = () => {
   const [showDialog, setShowDialog] = useState(false);
 
   const loginOff = () => {
-    if (context.option == "google") {
+    if (context.option === "google") {
       firebase
         .auth()
         .signOut()
