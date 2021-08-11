@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-kanban-hooks/static/css/main.424db1ca.chunk.css",
-    "main.js": "/react-kanban-hooks/static/js/main.b720aaea.chunk.js",
-    "main.js.map": "/react-kanban-hooks/static/js/main.b720aaea.chunk.js.map",
+    "main.js": "/react-kanban-hooks/static/js/main.ace9f5ec.chunk.js",
+    "main.js.map": "/react-kanban-hooks/static/js/main.ace9f5ec.chunk.js.map",
     "runtime-main.js": "/react-kanban-hooks/static/js/runtime-main.bc137beb.js",
     "runtime-main.js.map": "/react-kanban-hooks/static/js/runtime-main.bc137beb.js.map",
     "static/js/2.862c34e1.chunk.js": "/react-kanban-hooks/static/js/2.862c34e1.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.bc137beb.js",
     "static/js/2.862c34e1.chunk.js",
     "static/css/main.424db1ca.chunk.css",
-    "static/js/main.b720aaea.chunk.js"
+    "static/js/main.ace9f5ec.chunk.js"
   ]
 }
