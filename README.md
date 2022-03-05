@@ -6,4 +6,4 @@
 ## https://serafinpl.github.io/react-kanban-hooks
 
 ### Stack: 
-## ReactJs, axios, react-beautiful-dnd, gh-pages, FireBase REST API.
+## ReactJs, Context, axios, react-beautiful-dnd, gh-pages, FireBase REST API.
