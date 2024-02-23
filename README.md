@@ -1,4 +1,4 @@
-# Jack the Coder introduce Kanban Legacy APP from 2020.
+# Jack the Coder introduce Kanban Legacy APP from 2021.
 
 ### online version: 
 ### https://serafinpl.github.io/react-kanban-hooks
