@@ -20,7 +20,7 @@ pass: test123
 ### Author URI: [http://kubakoder.pl](http://kubakoder.pl)
 
 ### 🚀 About Me
-![](https://kubakoder.pl/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffavicon.5d6e1adf.png&w=24&q=75)
+![Logo](https://kubakoder.pl/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffavicon.5d6e1adf.png&w=48&q=75)
 I'm a full stack developer.
 
 📫 How to reach me...
