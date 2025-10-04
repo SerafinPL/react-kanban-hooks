@@ -6,7 +6,7 @@ Login: test123@test.pl
 
 pass: test123
 ##
-### Stack: 
+### 🛠️ Stack: 
 
 ![Static Badge](https://img.shields.io/badge/linux-mint-xfce?style=plastic&logo=linuxmint)
 ![Static Badge](https://img.shields.io/badge/git_at_-github-ex?style=plastic&logo=git&logoColor=F05032&color=F05032)
@@ -16,10 +16,11 @@ pass: test123
 ![Static Badge](https://img.shields.io/badge/githubpages-3.1.0-ex?style=plastic&logo=githubpages&logoColor=%23222222&labelColor=fff&color=%23222222)
 ![Static Badge](https://img.shields.io/badge/firebase-8.7.0-ex?style=plastic&logo=firebase&logoColor=%23DD2C00&color=%23DD2C00)
 ##
-### Author: [@SerafinPL](https://www.github.com/serafinpl)
-### Author URI: [http://kubakoder.pl](http://kubakoder.pl)
+### 👨🏻‍💻 Author: [@SerafinPL](https://www.github.com/serafinpl)
 
-### 🚀 About Me
+### 🌐 Author URI: [http://kubakoder.pl](http://kubakoder.pl)
+
+### 🚀 About Me:
 ![Logo](https://kubakoder.pl/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffavicon.5d6e1adf.png&w=48&q=75)
 
 I'm a full stack developer.
